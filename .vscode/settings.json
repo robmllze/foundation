@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "**/___**": true,
+        "**/__[a-zA-Z0-9]**": true,
+        // ".github": true,
+        ".hintrc": true,
+        "**/.dart_tool/": true,
+        "**/.firebase": true,
+        "**/analysis_options.yaml": true,
+        "**/build": true,
+        "**/firebase_prod": true,
+        "**/firebase_test": true,
+        // "**/.gitignore": true,
+        "**/.dart_tool": true,
+        "**/.DS_Store": true,
+        "**/.flutter-plugins": true,
+        "**/.flutter-plugins-dependencies": true,
+        "**/.metadata": true,
+        "**/pubspec.lock": true,
+        // "LICENSE": true,
+    },
+}

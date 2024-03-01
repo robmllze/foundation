@@ -1,0 +1,46 @@
+// To-Do: Copy and paste the following code into the tasks.json file inside the .vscode folder of your project.
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "⚙️ Generate Directives",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_directives.dart"
+        },
+        {
+            "label": "⚙️ Generate Exports",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_exports.dart"
+        },
+        {
+            "label": "⚙️ Generate License Headers",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_license_headers.dart"
+        },
+        {
+            "label": "⚙️ Generate Makeups",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_makeups.dart"
+        },
+        {
+            "label": "⚙️ Generate Models",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_models.dart"
+        },
+        {
+            "label": "⚙️ Generate Preps",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_preps.dart"
+        },
+        {
+            "label": "⚙️ Generate Screen Access",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_screen_access.dart"
+        },
+        {
+            "label": "⚙️ Generate Screen Configurations",
+            "type": "shell",
+            "command": "cd ___generators && dart generate_screen_configurations.dart"
+        }
+    ]
+}
