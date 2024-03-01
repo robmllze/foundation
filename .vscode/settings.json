@@ -1,7 +1,7 @@
 {
     "files.exclude": {
-        "**/___**": true,
-        "**/__[a-zA-Z0-9]**": true,
+        // "**/___**": true,
+        // "**/__[a-zA-Z0-9]**": true,
         // ".github": true,
         ".hintrc": true,
         "**/.dart_tool/": true,
