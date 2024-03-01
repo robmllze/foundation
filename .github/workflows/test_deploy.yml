@@ -1,19 +1,23 @@
 ##.title
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##
-## PROD DEPLOY
-## 
+## X|Y|Z & Dev
+##
+## Copyright Ⓒ Robert Mollentze, xyzand.dev
+##
+## Licensing details can be found in the LICENSE file in the root directory.
+##
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
 
-name: Prod Deploy
+name: Test Deploy
 
 ## -----------------------------------------------------------------------------
 
 on:
   push:
     branches:
-      - prod
+      - test
 
 ## -----------------------------------------------------------------------------
 
@@ -25,7 +29,7 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: test
 
     steps:
 
@@ -44,7 +48,7 @@ jobs:
     - name: Notify Slack on Start
       run: |
         curl -X POST -H 'Content-type: application/json' \
-        --data '{"text":"Starting PROD deployments..."}' \
+        --data '{"text":"Starting TEST deployments..."}' \
         ${{ vars.SLACK_DEPLOYMENTS_WEBHOOK_URL }}
     
     #
@@ -62,11 +66,11 @@ jobs:
 
     - name: Setup Google Cloud Credentials
       env:
-        PROD_FIREBASE_SERVICE_ACCOUNT: ${{ secrets.PROD_FIREBASE_SERVICE_ACCOUNT }}
+        TEST_FIREBASE_SERVICE_ACCOUNT: ${{ secrets.TEST_FIREBASE_SERVICE_ACCOUNT }}
       run: |
-        mkdir -p firebase_prod  # Ensure the directory exists
-        echo "$PROD_FIREBASE_SERVICE_ACCOUNT" > firebase_prod/google-credentials.json
-        echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/firebase_prod/google-credentials.json" >> $GITHUB_ENV
+        mkdir -p firebase_test  # Ensure the directory exists
+        echo "$TEST_FIREBASE_SERVICE_ACCOUNT" > firebase_test/google-credentials.json
+        echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/firebase_test/google-credentials.json" >> $GITHUB_ENV
     
     #
     #
@@ -111,21 +115,21 @@ jobs:
 
     - name: Build and deploy public_app
       env:
-        YOUR_PROD_FIREBASE_API_KEY: ${{ vars.YOUR_PROD_FIREBASE_API_KEY }}
+        YOUR_TEST_FIREBASE_API_KEY: ${{ vars.YOUR_TEST_FIREBASE_API_KEY }}
       run: |
-        dart __scripts/deploy_to_web_hosting_PROD/public_app__deploy_to_web_hosting_PROD.dart
+        dart .firebase_deployment_scripts/deploy_to_web_hosting_TEST/public_app@deploy_to_web_hosting_TEST.dart
 
     - name: Build and deploy admin_app
       env:
-        YOUR_PROD_FIREBASE_API_KEY: ${{ vars.YOUR_PROD_FIREBASE_API_KEY }}
+        YOUR_TEST_FIREBASE_API_KEY: ${{ vars.YOUR_TEST_FIREBASE_API_KEY }}
       run: |
-        dart __scripts/deploy_to_web_hosting_PROD/admin_app__deploy_to_web_hosting_PROD.dart
+        dart .firebase_deployment_scripts/deploy_to_web_hosting_TEST/admin_app@deploy_to_web_hosting_TEST.dart
 
     - name: Build and deploy organization_app
       env:
-          YOUR_PROD_FIREBASE_API_KEY: ${{ vars.YOUR_PROD_FIREBASE_API_KEY }}
+          YOUR_TEST_FIREBASE_API_KEY: ${{ vars.YOUR_TEST_FIREBASE_API_KEY }}
       run: |
-        dart __scripts/deploy_to_web_hosting_PROD/organization_app__deploy_to_web_hosting_PROD.dart
+        dart .firebase_deployment_scripts/deploy_to_web_hosting_TEST/organization_app@deploy_to_web_hosting_TEST.dart
     
     #
     #
@@ -135,7 +139,7 @@ jobs:
       if: success()
       run: |
         curl -X POST -H 'Content-type: application/json' \
-        --data '{"text":"PROD deployments succeeded!"}' \
+        --data '{"text":"TEST deployments succeeded!"}' \
         ${{ vars.SLACK_DEPLOYMENTS_WEBHOOK_URL }}
     
     #
@@ -146,5 +150,5 @@ jobs:
       if: failure()
       run: |
         curl -X POST -H 'Content-type: application/json' \
-        --data '{"text":":x: PROD deployments failed!"}' \
+        --data '{"text":":x: TEST deployments failed!"}' \
         ${{ vars.SLACK_DEPLOYMENTS_WEBHOOK_URL }}
