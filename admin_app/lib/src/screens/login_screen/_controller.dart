@@ -10,45 +10,55 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
-
-part '_bindings.g.dart';
-part '_controller.dart';
-part '_view.dart';
+part of 'login_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@GenerateScreenBindings(
-  defaultTitle: "Home",
-  isRedirectable: true,
-)
-class HomeScreen extends Screen {
+class LoginScreenController extends TLoginScreenController {
   //
   //
   //
 
-  const HomeScreen({
-    super.key,
-    super.configuration,
-    super.controllerCacheTimeout = Duration.zero,
-  });
+  LoginScreenController(super.screen, super.state);
 
   //
   //
   //
 
-  @override
-  _View createState() => _View();
+  final pCounter = Pod<int>(-1);
 
   //
   //
   //
 
-  @override
-  HomeScreenController createController(
-    Screen screen,
-    ScreenView state,
-  ) {
-    return HomeScreenController(screen, state);
+  void incrementCounter() {
+    this.pCounter.update((final value) => value + 1);
   }
+
+  //
+  //
+  //
+
+  @override
+  void initController() {
+    this.pCounter.set(0);
+    super.initController();
+  }
+
+  //
+  //
+  //
+
+  @override
+  void dispose() {
+    // Be sure to dispose all pods here.
+    this.pCounter.dispose();
+    super.dispose();
+  }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+extension LoginScreenControllerExtension on LoginScreenController {
+  // Tip: You can break up your controller into multiple files using extensions.
 }

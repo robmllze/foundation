@@ -19,15 +19,15 @@ part '_view.dart';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateScreenBindings(
-  defaultTitle: "Home",
+  defaultTitle: "Log In",
   isRedirectable: true,
 )
-class HomeScreen extends Screen {
+class LoginScreen extends Screen {
   //
   //
   //
 
-  const HomeScreen({
+  const LoginScreen({
     super.key,
     super.configuration,
     super.controllerCacheTimeout = Duration.zero,
@@ -45,10 +45,10 @@ class HomeScreen extends Screen {
   //
 
   @override
-  HomeScreenController createController(
+  LoginScreenController createController(
     Screen screen,
     ScreenView state,
   ) {
-    return HomeScreenController(screen, state);
+    return LoginScreenController(screen, state);
   }
 }

@@ -9,6 +9,7 @@
 
 export 'main_widget.dart';
 export 'screens/home_screen/home_screen.dart';
+export 'screens/login_screen/login_screen.dart';
 export 'screens/screen_access.g.dart';
 export 'screens/welcome_screen/welcome_screen.dart';
 export 'state/app_environment.dart';
