@@ -62,8 +62,10 @@ class _State extends State<MainWidget> {
         } else {
           return Material(
             child: Center(
-              child: MyAppIcon(
-                size: 100.sc,
+              child: WSpinner(
+                child: MyAppIcon(
+                  size: 50.sc,
+                ),
               ),
             ),
           );
