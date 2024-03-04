@@ -16,7 +16,7 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-import '/firebase_options.dart' as test;
+import 'firebase_options_test.dart' as firebase_options_test;
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -30,10 +30,10 @@ void main() async {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void startApp() async {
-  // Create a service environment to interact with the backend.
+  // 1. Create a service environment to interact with the backend.
   final serviceEnvironment = await createFirebaseServiceEnvironment(
     {
-      ServiceEnvironmentType.TEST: test.DefaultFirebaseOptions.currentPlatform,
+      ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
     }[ServiceEnvironment.currentServiceEnvironment]!,
   );
 
