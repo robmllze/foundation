@@ -4,4 +4,5 @@
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 **/.metadata
+**/build
 **/pubspec.lock
