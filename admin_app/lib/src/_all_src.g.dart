@@ -8,7 +8,6 @@
 //.title~
 
 export 'main_widget.dart';
-export 'screens/all_screens.g.dart';
 export 'screens/home_screen/home_screen.dart';
 export 'screens/screen_access.g.dart';
 export 'screens/welcome_screen/welcome_screen.dart';
