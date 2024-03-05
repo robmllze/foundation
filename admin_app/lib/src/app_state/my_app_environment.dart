@@ -42,61 +42,71 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   //
   //
 
+  /// Define what happens when the user is logged in for the first time after
+  /// freshly opening the app.
   @override
-  void defineAuthStateChangesBehaviour() {
-    var didAlreadyStartApp = false;
-    // If the user gets logged in at any point:
-    this.serviceEnvironment.authServiceBroker.onLogin = (currentUser) async {
-      this.pAppSession.value.startSession(currentUser);
+  void onFreshLogin(UserInterface currentUser) async {
+    /*await*/ this.pAppSession.value.startSession(currentUser);
+    final requested = this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
+    await this._routeTo(
+      requested ??
+          this.routeManager.defaultOnLoginScreenConfiguration ??
+          this.routeManager.defaultOnLogoutScreenConfiguration,
+    );
+  }
 
-      final initConfiguration =
-          this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
-      late final ModelScreenConfiguration targetConfiguration;
+  //
+  //
+  //
 
-      // If the app has not yet started:
-      if (didAlreadyStartApp == false) {
-        didAlreadyStartApp = true;
-        targetConfiguration = initConfiguration ??
-            this.routeManager.defaultOnLoginScreenConfiguration ??
-            this.routeManager.defaultOnLogoutScreenConfiguration;
-      }
-      // If the app has already started:
-      else {
-        targetConfiguration = this.routeManager.defaultOnLoginScreenConfiguration ??
-            this.routeManager.defaultOnLogoutScreenConfiguration;
-      }
-      final targetScreen = findScreenFromConfigurationAndAuthService(
-        configuration: targetConfiguration,
-        authServiceBroker: this.serviceEnvironment.authServiceBroker,
-      );
-      await this.routeManager.pScreenBreadcrumbs.set(Queue.of([targetScreen].nonNulls));
-      Future.delayed(Duration.zero, () => this.routeManager.go(targetConfiguration));
-    };
+  /// Define what happens when the user logs in after having logged out.
+  @override
+  void onLogin(UserInterface currentUser) async {
+    /*await*/ this.pAppSession.value.startSession(currentUser);
+    await this._routeTo(
+      this.routeManager.defaultOnLoginScreenConfiguration ??
+          this.routeManager.defaultOnLogoutScreenConfiguration,
+    );
+  }
 
-    // If the user gets logged out at any point:
-    this.serviceEnvironment.authServiceBroker.onLogout = () async {
-      final initConfiguration =
-          this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
-      late final ModelScreenConfiguration targetConfiguration;
+  //
+  //
+  //
 
-      // If the app has not yet started:
-      if (didAlreadyStartApp == false) {
-        didAlreadyStartApp = true;
-        targetConfiguration =
-            initConfiguration ?? this.routeManager.defaultOnLogoutScreenConfiguration;
-      }
-      // If the app has already started:
-      else {
-        this.pAppSession.value.stopSession();
-        targetConfiguration = this.routeManager.defaultOnLogoutScreenConfiguration;
-      }
-      final targetScreen = findScreenFromConfigurationAndAuthService(
-        configuration: targetConfiguration,
-        authServiceBroker: this.serviceEnvironment.authServiceBroker,
-      );
-      await this.routeManager.pScreenBreadcrumbs.set(Queue.of([targetScreen].nonNulls));
-      Future.delayed(Duration.zero, () => this.routeManager.go(targetConfiguration));
-    };
+  /// Define what happens when the user is logged out for the first time after
+  /// freshly opening the app.
+  @override
+  void onFreshLogout() async {
+    final requested = this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
+    await this._routeTo(
+      requested ?? this.routeManager.defaultOnLogoutScreenConfiguration,
+    );
+  }
+
+  //
+  //
+  //
+
+  /// Define what happens when the user logs out after having logged in.
+  @override
+  void onLogout() async {
+    /*await*/ this.pAppSession.value.stopSession();
+    await this._routeTo(
+      this.routeManager.defaultOnLogoutScreenConfiguration,
+    );
+  }
+
+  //
+  //
+  //
+
+  Future<void> _routeTo(ModelScreenConfiguration to) async {
+    final targetScreen = findScreenFromConfigurationAndAuthService(
+      configuration: to,
+      authServiceBroker: this.serviceEnvironment.authServiceBroker,
+    );
+    await this.routeManager.pScreenBreadcrumbs.set(Queue.of([targetScreen].nonNulls));
+    Future.delayed(Duration.zero, () => this.routeManager.go(to));
   }
 
   //
