@@ -27,5 +27,4 @@ export 'package:_view/_common.dart'
     hide generatedScreenRoutes, SCREEN_MAKERS, findScreenFromConfiguration
     hide findScreenFromConfigurationAndAuthService;
 
-export 'main.dart';
 export 'src/_all_src.g.dart';

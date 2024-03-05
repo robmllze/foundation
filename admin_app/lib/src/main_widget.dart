@@ -1,12 +1,12 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev 
+// X|Y|Z & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
-// 
+//
 // Licensing details can be found in the LICENSE file in the root directory.
-// 
+//
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
@@ -40,13 +40,13 @@ class _State extends State<MainWidget> {
   Widget build(BuildContext context) {
     return PodListBuilder(
       podList: [
-        pAppSession,
-        pAppTheme,
-        localeManager.pLocaleRef,
-        pAppUnits,
+        app.pAppSession,
+        app.localeManager.pLocaleRef,
+        pDefaultAppTheme,
+        pDefaultAppScale,
       ],
       builder: (context, child, values) {
-        final appSession = values.elementAt(0) as AppSession?;
+        final appSession = values.elementAt(0) as MyAppSession?;
         final appTheme = values.elementAt(1) as AppTheme;
         if (appSession != null) {
           return MaterialApp.router(

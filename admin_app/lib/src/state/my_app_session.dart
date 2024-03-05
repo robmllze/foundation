@@ -1,12 +1,12 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev 
+// X|Y|Z & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
-// 
+//
 // Licensing details can be found in the LICENSE file in the root directory.
-// 
+//
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
@@ -14,8 +14,7 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-/// Holds and manages all the services used by the app.
-class AppSession {
+class MyAppSession extends AppSession {
   //
   //
   //
@@ -29,19 +28,16 @@ class AppSession {
   //
   //
 
-  final ServiceEnvironment serviceEnvironment;
+  MyAppSession(super.serviceEnvironment);
 
   //
   //
   //
 
-  AppSession(this.serviceEnvironment);
-
-  //
-  //
-  //
-
+  @override
   Future<void> startSession(UserInterface currentUser) async {
+    super.startSession(currentUser);
+
     await pUserService.set(
       await initService(
         UserService(
@@ -87,21 +83,20 @@ class AppSession {
   //
   //
 
+  @override
   Future<void> stopSession() async {
-    final loggedOut = this.serviceEnvironment.authServiceBroker.loggedOut;
-    assert(loggedOut);
-    if (loggedOut) {
-      pRelationshipService.value?.dispose();
-      await pRelationshipService.set(null);
+    super.stopSession();
 
-      pUserEventsService.value?.dispose();
-      await pUserEventsService.set(null);
+    pRelationshipService.value?.dispose();
+    await pRelationshipService.set(null);
 
-      pUserPubService.value?.dispose();
-      await pUserPubService.set(null);
+    pUserEventsService.value?.dispose();
+    await pUserEventsService.set(null);
 
-      pUserService.value?.dispose();
-      await pUserService.set(null);
-    }
+    pUserPubService.value?.dispose();
+    await pUserPubService.set(null);
+
+    pUserService.value?.dispose();
+    await pUserService.set(null);
   }
 }
