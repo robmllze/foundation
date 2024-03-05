@@ -13,7 +13,7 @@ part of 'login_screen.dart';
 
 const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED = false;
 const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = false;
-const _IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = false;
+const _IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = true;
 const _IS_REDIRECTABLE = true;
 
 const _CLASS = "LoginScreen";

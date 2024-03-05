@@ -22,24 +22,76 @@ class SignUpScreenController extends TSignUpScreenController {
   //
   //
 
-  final pCounter = Pod<int>(-1);
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final organizationEmailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   //
   //
   //
 
-  void incrementCounter() {
-    this.pCounter.update((final value) => value + 1);
+  Future<void> signUpWithEmailAndPassword() async {
+    final context = this.state.context;
+    late void Function() removeOverlay;
+    showAppLogoOverlay(
+      context,
+      remover: (r) {
+        removeOverlay = r;
+        app.routeManager.pScreenBreadcrumbs.addSingleExecutionListener(r);
+      },
+    );
+    try {
+      await app.serviceEnvironment.authServiceBroker.signUpWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      await this._createAndWriteNewUserData(
+        displayName: nameController.text,
+        email: emailController.text,
+        userId: app.serviceEnvironment.authServiceBroker.pCurrentUser.value!.userId,
+      );
+    } catch (e) {
+      removeOverlay();
+      if (context.mounted) {
+        showErrorToastOverlay(
+          context,
+          error: "$e",
+          remover: (r) => Future.delayed(const Duration(seconds: 3), r),
+        );
+      }
+    }
   }
 
   //
   //
   //
 
-  @override
-  void initController() {
-    this.pCounter.set(0);
-    super.initController();
+  Future<void> _createAndWriteNewUserData({
+    required String displayName,
+    required String email,
+    required String userId,
+  }) async {
+    final userPubId = IdUtils.mapUserIdToPubId(userId: userId);
+    await app.serviceEnvironment.databaseServiceBroker.batchWrite([
+      BatchWriteOperation(
+        Schema.usersRef(userId: userId),
+        model: ModelUser(
+          id: userId,
+          userPubId: userPubId,
+        ),
+      ),
+      BatchWriteOperation(
+        Schema.userPubsRef(userPubId: userPubId),
+        model: ModelUserPub(
+          id: userPubId,
+          userId: userId,
+          displayName: displayName,
+          displayNameSearchable: displayName.toLowerCase(),
+          emailSearchable: email.toLowerCase(),
+        ),
+      ),
+    ]);
   }
 
   //
@@ -48,14 +100,10 @@ class SignUpScreenController extends TSignUpScreenController {
 
   @override
   void dispose() {
-    // Be sure to dispose all pods here.
-    this.pCounter.dispose();
+    this.nameController.dispose();
+    this.emailController.dispose();
+    this.organizationEmailController.dispose();
+    this.passwordController.dispose();
     super.dispose();
   }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-extension SignUpScreenControllerExtension on SignUpScreenController {
-  // Tip: You can break up your controller into multiple files using extensions.
 }

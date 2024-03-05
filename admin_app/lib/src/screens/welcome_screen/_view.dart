@@ -1,12 +1,12 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev 
+// X|Y|Z & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
-// 
+//
 // Licensing details can be found in the LICENSE file in the root directory.
-// 
+//
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
@@ -22,24 +22,18 @@ class _View extends TWelcomeScreenView {
   @override
   Widget layout(Widget body) {
     return super.layout(
-      Column(
-        children: [
-          MyHeader(
-            title: this.widget.configuration?.title,
-            onBackButtonPressed: app.routeManager.goBack,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(20.sc),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: body,
-                ),
-              ),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+              bottom: 60.sc,
+              left: 20.sc,
+              right: 20.sc,
             ),
+            child: body,
           ),
-        ],
+        ),
       ),
     );
   }
@@ -50,26 +44,48 @@ class _View extends TWelcomeScreenView {
 
   @override
   Widget body(BuildContext context) {
-    return WColumn(
-      divider: SizedBox(height: 20.sc),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        PodBuilder(
-          pod: this.c.pCounter,
-          builder: (context, child, counter) {
-            return Text("Count: $counter");
-          },
+        SvgPicture.asset(
+          "$VIEW_IMAGES_PATH/logo.svg",
+          width: 200.sc,
+          height: 200.sc,
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).colorScheme.primary,
+            BlendMode.srcIn,
+          ),
         ),
-        TextButton(
-          onPressed: this.c.incrementCounter,
-          child: const Text("INCREMENT COUNTER"),
+        SizedBox(height: 12.sc),
+        Text(
+          "Welcome to JobXcel||welcome".screenTr(),
+          style: Theme.of(context).textTheme.headlineMedium,
+          textAlign: TextAlign.center,
+          softWrap: true,
+        ),
+        SizedBox(height: 32.sc),
+        Wrap(
+          spacing: 12.sc,
+          runSpacing: 12.sc,
+          children: [
+            FilledButton(
+              onPressed: () => app.routeManager.go(LoginScreenConfiguration()),
+              child: SizedBox(
+                width: 80.sc,
+                child: Center(child: Text("Log In||log_in".screenTr())),
+              ),
+            ),
+            FilledButton(
+              onPressed: () => app.routeManager.go(SignUpScreenConfiguration()),
+              child: SizedBox(
+                width: 80.sc,
+                child: Center(child: Text("Sign Up||sign_up".screenTr())),
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-extension _Labels on WelcomeScreenController {
-  // Tip: You can add functions to your controller here.
 }

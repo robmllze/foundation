@@ -33,9 +33,10 @@ class LoginScreenController extends TLoginScreenController {
   //
 
   Future<void> logInWithEmailAndPassword() async {
+    final context = this.state.context;
     late void Function() removeOverlay;
     showAppLogoOverlay(
-      this.state.context,
+      context,
       remover: (r) {
         removeOverlay = r;
         app.routeManager.pScreenBreadcrumbs.addSingleExecutionListener(r);
@@ -48,7 +49,7 @@ class LoginScreenController extends TLoginScreenController {
       );
     } catch (e) {
       removeOverlay();
-      final context = this.state.context;
+
       if (context.mounted) {
         showErrorToastOverlay(
           context,

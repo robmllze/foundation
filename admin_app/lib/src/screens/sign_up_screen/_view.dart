@@ -21,16 +21,15 @@ class _View extends TSignUpScreenView {
     return super.layout(
       Column(
         children: [
-          MyHeader(
-            title: this.widget.configuration?.title,
-            onBackButtonPressed: app.routeManager.goBack,
+          MyHeaderBackButton(
+            onBackButtonPressed: () => app.routeManager.go(WelcomeScreenConfiguration()),
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(20.sc),
-                child: SizedBox(
-                  width: double.infinity,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(20.sc),
                   child: body,
                 ),
               ),
@@ -47,26 +46,58 @@ class _View extends TSignUpScreenView {
 
   @override
   Widget body(BuildContext context) {
-    return WColumn(
-      divider: SizedBox(height: 20.sc),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        PodBuilder(
-          pod: this.c.pCounter,
-          builder: (context, child, counter) {
-            return Text("Count: $counter");
-          },
+        Text(
+          "Sign Up||title".screenTr(),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
+        SizedBox(height: 24.sc),
+        TextField(
+          decoration: InputDecoration(
+            labelText: "Name||name".screenTr(),
+            border: const OutlineInputBorder(),
+          ),
+          controller: this.c.nameController,
+        ),
+        SizedBox(height: 16.sc),
+        TextField(
+          decoration: InputDecoration(
+            labelText: "Email||email".screenTr(),
+            border: const OutlineInputBorder(),
+          ),
+          controller: this.c.emailController,
+        ),
+        SizedBox(height: 16.sc),
+        TextField(
+          decoration: InputDecoration(
+            labelText: "Organization Email||organization_email".screenTr(),
+            border: const OutlineInputBorder(),
+          ),
+          controller: this.c.organizationEmailController,
+        ),
+        SizedBox(height: 16.sc),
+        TextField(
+          decoration: InputDecoration(
+            labelText: "Password||password".screenTr(),
+            border: const OutlineInputBorder(),
+          ),
+          obscureText: true,
+          controller: this.c.passwordController,
+          onSubmitted: (_) => this.c.signUpWithEmailAndPassword(),
+        ),
+        SizedBox(height: 32.sc),
+        FilledButton(
+          onPressed: this.c.signUpWithEmailAndPassword,
+          child: Text("Sign Up||sign_up".screenTr()),
+        ),
+        SizedBox(height: 12.sc),
         TextButton(
-          onPressed: this.c.incrementCounter,
-          child: const Text("INCREMENT COUNTER"),
+          onPressed: () => app.routeManager.go(LoginScreenConfiguration()),
+          child: Text("Or Log In||or_log_in".screenTr()),
         ),
       ],
     );
   }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-extension _Labels on SignUpScreenController {
-  // Tip: You can add functions to your controller here.
 }
