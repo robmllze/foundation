@@ -14,6 +14,10 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
+late final MyAppEnvironment app;
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
 class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   //
   //
@@ -25,7 +29,7 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   //
   //
 
-  late final stateManager = MyAppStateManager(this);
+  late final state = MyAppStateManager(this);
 
   //
   //
