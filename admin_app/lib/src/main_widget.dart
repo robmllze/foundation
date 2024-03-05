@@ -14,7 +14,7 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class MainWidget extends StatefulWidget {
+class MainWidget extends StatelessWidget {
   //
   //
   //
@@ -26,50 +26,20 @@ class MainWidget extends StatefulWidget {
   //
 
   @override
-  _State createState() => _State();
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class _State extends State<MainWidget> {
-  //
-  //
-  //
-
-  @override
   Widget build(BuildContext context) {
-    return PodListBuilder(
-      podList: [
-        app.pAppSession,
-        app.localeManager.pLocaleRef,
-        pDefaultAppTheme,
-        pDefaultAppScale,
-      ],
+    return RespondingPodListBuilder(
+      podListResponder: G.mainWidgetPlr,
       builder: (context, child, values) {
-        final appSession = values.elementAt(0) as MyAppSession?;
-        final appTheme = values.elementAt(1) as AppTheme;
-        if (appSession != null) {
-          return MaterialApp.router(
-            key: UniqueKey(),
-            title: "App||app_title".tr(),
-            // ignore: invalid_use_of_protected_member
-            routerConfig: app.routeManager.router,
-            theme: appTheme.data,
-            builder: (context, body) {
-              return Scaffold(body: body);
-            },
-          );
-        } else {
-          return Material(
-            child: Center(
-              child: WSpinner(
-                child: MyAppIcon(
-                  size: 50.sc,
-                ),
-              ),
-            ),
-          );
-        }
+        return MaterialApp.router(
+          key: UniqueKey(),
+          title: "App||app_title".tr(),
+          // ignore: invalid_use_of_protected_member
+          routerConfig: app.routeManager.router,
+          theme: G.appThemeSnapshot().data,
+          builder: (context, body) {
+            return Scaffold(body: body);
+          },
+        );
       },
     );
   }

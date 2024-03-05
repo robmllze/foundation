@@ -10,11 +10,13 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import '/firebase_options_test.dart' as firebase_options_test;
+
 import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-late final MyAppEnvironment app;
+final pAppEnvironment = Pod<MyAppEnvironment?>(null);
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -24,12 +26,6 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   //
 
   MyAppEnvironment(super.serviceEnvironment);
-
-  //
-  //
-  //
-
-  late final state = MyAppStateManager(this);
 
   //
   //
@@ -133,4 +129,16 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
       Languages.SPANISH_MX,
     },
   );
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+void createAppEnvironment() async {
+  // Create a service environment to interact with the backend.
+  final serviceEnvironment = await createFirebaseServiceEnvironment(
+    {
+      ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
+    }[ServiceEnvironment.currentServiceEnvironment]!,
+  );
+  await pAppEnvironment.set(MyAppEnvironment(serviceEnvironment));
 }
