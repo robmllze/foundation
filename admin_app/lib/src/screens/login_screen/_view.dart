@@ -1,12 +1,12 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev 
+// X|Y|Z & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
-// 
+//
 // Licensing details can be found in the LICENSE file in the root directory.
-// 
+//
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
@@ -24,16 +24,15 @@ class _View extends TLoginScreenView {
     return super.layout(
       Column(
         children: [
-          MyHeader(
-            title: this.widget.configuration?.title,
-            onBackButtonPressed: app.routeManager.goBack,
+          MyHeaderBackButton(
+            onBackButtonPressed: () => app.routeManager.go(WelcomeScreenConfiguration()),
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(20.sc),
-                child: SizedBox(
-                  width: double.infinity,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(20.sc),
                   child: body,
                 ),
               ),
@@ -50,26 +49,47 @@ class _View extends TLoginScreenView {
 
   @override
   Widget body(BuildContext context) {
-    return WColumn(
-      divider: SizedBox(height: 20.sc),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        PodBuilder(
-          pod: this.c.pCounter,
-          builder: (context, child, counter) {
-            return Text("Count: $counter");
-          },
+        Text(
+          "Log In||title".screenTr(),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
+        SizedBox(height: 24.sc),
+        TextField(
+          decoration: InputDecoration(
+            labelText: "Email||email".screenTr(),
+            border: const OutlineInputBorder(),
+          ),
+          controller: this.c.emailController,
+        ),
+        SizedBox(height: 16.sc),
+        TextField(
+          decoration: InputDecoration(
+            labelText: "Password||password".screenTr(),
+            border: const OutlineInputBorder(),
+          ),
+          obscureText: true,
+          controller: this.c.passwordController,
+          onSubmitted: (_) => this.c.logInWithEmailAndPassword(),
+        ),
+        SizedBox(height: 32.sc),
+        FilledButton(
+          onPressed: this.c.logInWithEmailAndPassword,
+          child: Text("Log In||log_in".screenTr()),
+        ),
+        SizedBox(height: 8.sc),
         TextButton(
-          onPressed: this.c.incrementCounter,
-          child: const Text("INCREMENT COUNTER"),
+          onPressed: this.c.forgotPassword,
+          child: Text("Forgot Password?||forgot_password".screenTr()),
+        ),
+        SizedBox(height: 12.sc),
+        TextButton(
+          onPressed: () => app.routeManager.go(SignUpScreenConfiguration()),
+          child: Text("Or Sign Up||or_sign_up".screenTr()),
         ),
       ],
     );
   }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-extension _Labels on LoginScreenController {
-  // Tip: You can add functions to your controller here.
 }

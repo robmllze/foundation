@@ -114,7 +114,7 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
     findScreen: findScreenFromConfigurationAndAuthService,
     generatedScreenRoutes: generatedScreenRoutes,
     defaultOnLoginScreenConfiguration: HomeScreenConfiguration(),
-    defaultOnLogoutScreenConfiguration: WelcomeScreenConfiguration(),
+    defaultOnLogoutScreenConfiguration: LoginScreenConfiguration(),
   );
 
   //
@@ -133,12 +133,14 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-void createAppEnvironment() async {
-  // Create a service environment to interact with the backend.
+void createEnvironment() async {
+  // 1. Create a service environment to interact with backend services.
   final serviceEnvironment = await createFirebaseServiceEnvironment(
     {
       ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
     }[ServiceEnvironment.currentServiceEnvironment]!,
   );
-  await pAppEnvironment.set(MyAppEnvironment(serviceEnvironment));
+  // 2. Create an app environment to hold the state of the app.
+  final appEnvironment = MyAppEnvironment(serviceEnvironment);
+  await pAppEnvironment.set(appEnvironment);
 }

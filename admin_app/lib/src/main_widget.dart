@@ -30,16 +30,22 @@ class MainWidget extends StatelessWidget {
     return RespondingPodListBuilder(
       podListResponder: G.mainWidgetPlr,
       builder: (context, child, values) {
-        return MaterialApp.router(
-          key: UniqueKey(),
-          title: "App||app_title".tr(),
-          // ignore: invalid_use_of_protected_member
-          routerConfig: app.routeManager.router,
-          theme: G.appThemeSnapshot().data,
-          builder: (context, body) {
-            return Scaffold(body: body);
-          },
-        );
+        final appEnvironment = G.appEnvironmentSnapshot();
+        if (appEnvironment != null) {
+          return MaterialApp.router(
+            key: UniqueKey(),
+            title: "App||app_title".tr(),
+            routerConfig: appEnvironment.routeManager.router,
+            theme: G.appThemeSnapshot().data,
+            builder: (context, body) => Scaffold(body: body),
+          );
+        } else {
+          return const Center(
+            child: WSpinner(
+              child: MyAppIcon(),
+            ),
+          );
+        }
       },
     );
   }

@@ -42,9 +42,9 @@
             "command": "cd ___generators && dart generate_screen_access.dart"
         },
         {
-            "label": "⚙️ Generate Screen Configurations",
+            "label": "⚙️ Generate Screen Bindings",
             "type": "shell",
-            "command": "cd ___generators && dart generate_screen_configurations.dart"
+            "command": "cd ___generators && dart generate_screen_bindings.dart"
         }
     ]
 }

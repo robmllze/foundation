@@ -14,12 +14,14 @@ import '/_common.dart';
 final generatedScreenRoutes = [
   generatedHomeScreenRoute,
   generatedLoginScreenRoute,
+  generatedSignUpScreenRoute,
   generatedWelcomeScreenRoute,
 ];
 
 const SCREEN_MAKERS = [
   makerHomeScreen,
   makerLoginScreen,
+  makerSignUpScreen,
   makerWelcomeScreen,
 ];
 
