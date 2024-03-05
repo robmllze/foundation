@@ -19,6 +19,6 @@ import '/_common.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
-  createEnvironment();
+  Future.delayed(Duration.zero, createEnvironment);
   runApp(const MainWidget());
 }

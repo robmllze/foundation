@@ -96,9 +96,3 @@ class LoginScreenController extends TLoginScreenController {
     super.dispose();
   }
 }
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-extension LoginScreenControllerExtension on LoginScreenController {
-  // Tip: You can break up your controller into multiple files using extensions.
-}

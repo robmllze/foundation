@@ -20,7 +20,7 @@ part '_view.dart';
 
 @GenerateScreenBindings(
   defaultTitle: "Home",
-  isRedirectable: false,
+  isRedirectable: true,
 )
 class HomeScreen extends Screen {
   //

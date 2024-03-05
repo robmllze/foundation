@@ -41,11 +41,10 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   /// Define what happens when the user is logged in for the first time after
   /// freshly opening the app.
   @override
-  void onFreshLogin(UserInterface currentUser) async {
+  void onFreshLogin(UserInterface user) async {
     Here().debugLogStart("Fresh login detected");
-    /*await*/ this.pAppSession.value.startSession(currentUser);
+    /*await*/ this.pAppSession.value.startSession(user);
     final requested = this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
-
     await this._routeTo(
       requested ??
           this.routeManager.defaultOnLoginScreenConfiguration ??
@@ -59,9 +58,9 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
 
   /// Define what happens when the user logs in after having logged out.
   @override
-  void onLogin(UserInterface currentUser) async {
+  void onLogin(UserInterface user) async {
     Here().debugLogStart("Login detected");
-    /*await*/ this.pAppSession.value.startSession(currentUser);
+    /*await*/ this.pAppSession.value.startSession(user);
     await this._routeTo(
       this.routeManager.defaultOnLoginScreenConfiguration ??
           this.routeManager.defaultOnLogoutScreenConfiguration,
@@ -101,29 +100,14 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   //
   //
 
-  Future<void> _routeTo(ModelScreenConfiguration? to) async {
-    print("Trying: ${to?.path}");
-    var targetScreen = to != null
-        ? findScreenFromConfigurationAndAuthService(
-            configuration: to,
-            authServiceBroker: this.serviceEnvironment.authServiceBroker,
-          )
-        : null;
-
-    if (targetScreen == null) {
-      to = this.pAppSession.value.loggedIn
-          ? this.routeManager.defaultOnLoginScreenConfiguration ??
-              this.routeManager.defaultOnLogoutScreenConfiguration
-          : this.routeManager.defaultOnLogoutScreenConfiguration;
-    }
-    targetScreen = findScreenFromConfigurationAndAuthService(
-      configuration: to!,
+  Future<void> _routeTo(ModelScreenConfiguration to) async {
+    final targetScreen = findScreenFromConfigurationAndAuthService(
+      configuration: to,
       authServiceBroker: this.serviceEnvironment.authServiceBroker,
     );
-    print("Decided on: ${to.path}");
-    print("Logged in?: ${this.pAppSession.value.loggedIn}");
+
     await this.routeManager.pScreenBreadcrumbs.set(Queue.of([targetScreen!]));
-    Future.delayed(Duration.zero, () => this.routeManager.go(to!));
+    this.routeManager.go(targetScreen.configuration!);
   }
 
   //
@@ -154,7 +138,7 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-void createEnvironment() async {
+Future<void> createEnvironment() async {
   // 1. Create a service environment to interact with backend services.
   final serviceEnvironment = await createFirebaseServiceEnvironment(
     {
@@ -163,6 +147,5 @@ void createEnvironment() async {
   );
   // 2. Create an app environment to hold the state of the app.
   final appEnvironment = MyAppEnvironment(serviceEnvironment);
-  appEnvironment.initApp();
   await pAppEnvironment.set(appEnvironment);
 }

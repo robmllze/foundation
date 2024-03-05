@@ -25,6 +25,7 @@ class MainWidget extends StatelessWidget {
   //
   //
 
+  //
   @override
   Widget build(BuildContext context) {
     return RespondingPodListBuilder(
@@ -37,6 +38,7 @@ class MainWidget extends StatelessWidget {
             title: "App||app_title".tr(),
             routerConfig: appEnvironment.routeManager.router,
             theme: G.appThemeSnapshot().data,
+            debugShowCheckedModeBanner: false,
             builder: (context, body) => Scaffold(body: body),
           );
         } else {
