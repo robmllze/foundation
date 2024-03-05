@@ -72,14 +72,6 @@ class _View extends TSignUpScreenView {
         SizedBox(height: 16.sc),
         TextField(
           decoration: InputDecoration(
-            labelText: "Organization Email||organization_email".screenTr(),
-            border: const OutlineInputBorder(),
-          ),
-          controller: this.c.organizationEmailController,
-        ),
-        SizedBox(height: 16.sc),
-        TextField(
-          decoration: InputDecoration(
             labelText: "Password||password".screenTr(),
             border: const OutlineInputBorder(),
           ),

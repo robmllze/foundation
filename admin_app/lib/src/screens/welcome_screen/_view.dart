@@ -49,17 +49,17 @@ class _View extends TWelcomeScreenView {
       mainAxisSize: MainAxisSize.min,
       children: [
         SvgPicture.asset(
-          "$VIEW_IMAGES_PATH/logo.svg",
+          "$VIEW_IMAGES_PATH/app_icon/app_icon.svg",
           width: 200.sc,
           height: 200.sc,
-          colorFilter: ColorFilter.mode(
-            Theme.of(context).colorScheme.primary,
-            BlendMode.srcIn,
-          ),
+          // colorFilter: ColorFilter.mode(
+          //   Theme.of(context).colorScheme.primary,
+          //   BlendMode.srcIn,
+          // ),
         ),
         SizedBox(height: 12.sc),
         Text(
-          "Welcome to JobXcel||welcome".screenTr(),
+          "Welcome to this app||welcome".screenTr(),
           style: Theme.of(context).textTheme.headlineMedium,
           textAlign: TextAlign.center,
           softWrap: true,

@@ -24,7 +24,6 @@ class SignUpScreenController extends TSignUpScreenController {
 
   final nameController = TextEditingController();
   final emailController = TextEditingController();
-  final organizationEmailController = TextEditingController();
   final passwordController = TextEditingController();
 
   //
@@ -102,7 +101,6 @@ class SignUpScreenController extends TSignUpScreenController {
   void dispose() {
     this.nameController.dispose();
     this.emailController.dispose();
-    this.organizationEmailController.dispose();
     this.passwordController.dispose();
     super.dispose();
   }

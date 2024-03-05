@@ -12,9 +12,9 @@ part of 'home_screen.dart';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED = false;
-const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = false;
+const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = true;
 const _IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = false;
-const _IS_REDIRECTABLE = true;
+const _IS_REDIRECTABLE = false;
 
 const _CLASS = "HomeScreen";
 const _SEGMENT = "home";
