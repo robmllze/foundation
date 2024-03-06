@@ -21,13 +21,15 @@ final pAppState = Pod<AppEnvironmentState?>(null);
 
 /// Creates the app environment and initializes the state of the app.
 Future<void> createEnvironment() async {
-  // 1. Create a service environment to interact with backend services.
-  final serviceEnvironment = await createFirebaseServiceEnvironment(
-    {
-      ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
-    }[ServiceEnvironment.currentServiceEnvironment]!,
-  );
-  // 2. Create an app environment to hold the state of the app.
-  final appEnvironment = AppEnvironmentState(serviceEnvironment);
-  await pAppState.set(appEnvironment);
+  await Future.delayed(Duration.zero, () async {
+    // 1. Create a service environment to interact with backend services.
+    final serviceEnvironment = await createFirebaseServiceEnvironment(
+      {
+        ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
+      }[ServiceEnvironment.currentServiceEnvironment]!,
+    );
+    // 2. Create an app environment to hold the state of the app.
+    final appEnvironment = AppEnvironmentState(serviceEnvironment);
+    await pAppState.set(appEnvironment);
+  });
 }
