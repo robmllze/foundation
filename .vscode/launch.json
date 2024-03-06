@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "admin_app",
+            "cwd": "admin_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "admin_app (profile mode)",
+            "cwd": "admin_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "admin_app (release mode)",
+            "cwd": "admin_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
