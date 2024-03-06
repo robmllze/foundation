@@ -25,7 +25,8 @@ class _View extends TLoginScreenView {
       Column(
         children: [
           MyHeaderBackButton(
-            onBackButtonPressed: () => app.routeManager.go(WelcomeScreenConfiguration()),
+            onBackButtonPressed: () =>
+                app.routeManager.go(WelcomeScreenConfiguration()),
           ),
           Expanded(
             child: Align(

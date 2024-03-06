@@ -44,7 +44,8 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   void onFreshLogin(UserInterface user) async {
     Here().debugLogStart("Fresh login detected");
     /*await*/ this.pAppSession.value.startSession(user);
-    final requested = this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
+    final requested =
+        this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
     await this._routeTo(
       requested ??
           this.routeManager.defaultOnLoginScreenConfiguration ??
@@ -76,7 +77,8 @@ class MyAppEnvironment extends AppEnvironment<MyAppSession> {
   @override
   void onFreshLogout() async {
     Here().debugLogStop("Fresh logout detected");
-    final requested = this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
+    final requested =
+        this.routeManager.pScreenBreadcrumbs.value.lastOrNull?.configuration;
     await this._routeTo(
       requested ?? this.routeManager.defaultOnLogoutScreenConfiguration,
     );
@@ -142,7 +144,8 @@ Future<void> createEnvironment() async {
   // 1. Create a service environment to interact with backend services.
   final serviceEnvironment = await createFirebaseServiceEnvironment(
     {
-      ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
+      ServiceEnvironmentType.TEST:
+          firebase_options_test.DefaultFirebaseOptions.currentPlatform,
     }[ServiceEnvironment.currentServiceEnvironment]!,
   );
   // 2. Create an app environment to hold the state of the app.

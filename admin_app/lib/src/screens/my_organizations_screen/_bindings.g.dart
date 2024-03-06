@@ -7,19 +7,19 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-part of 'login_screen.dart';
+part of 'my_organizations_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED = false;
-const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = false;
-const _IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = true;
+const _IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = true;
+const _IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = false;
 const _IS_REDIRECTABLE = false;
 
-const _CLASS = "LoginScreen";
-const _SEGMENT = "login";
+const _CLASS = "MyOrganizationsScreen";
+const _SEGMENT = "my_organizations";
 const _PATH = "/$_SEGMENT";
-const _TR_KEY = "screens.LoginScreen";
+const _TR_KEY = "screens.MyOrganizationsScreen";
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -31,7 +31,7 @@ extension _ScreenTr on String {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Screen? makerLoginScreen(
+Screen? makerMyOrganizationsScreen(
   ModelScreenConfiguration configuration,
   bool isLoggedInAndVerified,
   bool isLoggedIn,
@@ -43,7 +43,7 @@ Screen? makerLoginScreen(
       (_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT && !isLoggedOut)) {
     return null;
   }
-  if (configuration is LoginScreenConfiguration ||
+  if (configuration is MyOrganizationsScreenConfiguration ||
       RegExp(
         r"^(" + _PATH + r")([?/].*)?$",
       ).hasMatch(
@@ -51,7 +51,7 @@ Screen? makerLoginScreen(
           configuration.path ?? "",
         ),
       )) {
-    return LoginScreen(
+    return MyOrganizationsScreen(
       key: ValueKey<String?>(configuration.path),
       configuration: configuration,
     );
@@ -61,7 +61,7 @@ Screen? makerLoginScreen(
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class LoginScreenConfiguration extends ModelScreenConfiguration {
+class MyOrganizationsScreenConfiguration extends ModelScreenConfiguration {
   static const CLASS = _CLASS;
   static const SEGMENT = _SEGMENT;
   static const PATH = _PATH;
@@ -74,11 +74,11 @@ class LoginScreenConfiguration extends ModelScreenConfiguration {
       _IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT;
   static const IS_REDIRECTABLE = _IS_REDIRECTABLE;
   static const NAVIGATION_CONTROLS_WIDGET = null;
-  static const TITLE = "Log In||title";
+  static const TITLE = "My Organizations||title";
   // ignore: prefer_const_declarations
   static final ScreenMakeup? screenMakeup = null;
 
-  LoginScreenConfiguration({
+  MyOrganizationsScreenConfiguration({
     Map<dynamic, dynamic>? $arguments,
   }) : super(
           path: _PATH,
@@ -96,7 +96,7 @@ class LoginScreenConfiguration extends ModelScreenConfiguration {
     super.makeup = screenMakeup;
   }
 
-  LoginScreenConfiguration.fromArgs(Map<dynamic, dynamic>? args)
+  MyOrganizationsScreenConfiguration.fromArgs(Map<dynamic, dynamic>? args)
       : super(
           path: _PATH,
           arguments: args,
@@ -114,11 +114,12 @@ class LoginScreenConfiguration extends ModelScreenConfiguration {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-abstract class _ControllerBroker<T1 extends LoginScreen, T2 extends _View>
-    extends ScreenController<LoginScreenConfiguration> {
+abstract class _ControllerBroker<T1 extends MyOrganizationsScreen,
+        T2 extends _View>
+    extends ScreenController<MyOrganizationsScreenConfiguration> {
   late final screen = super.superScreen as T1;
   late final state = super.superState as T2;
-  late final configuration = LoginScreenConfiguration.fromArgs(
+  late final configuration = MyOrganizationsScreenConfiguration.fromArgs(
     screen.configuration?.arguments ?? {},
   );
 
@@ -127,28 +128,28 @@ abstract class _ControllerBroker<T1 extends LoginScreen, T2 extends _View>
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-final generatedLoginScreenRoute = GoRoute(
+final generatedMyOrganizationsScreenRoute = GoRoute(
   path: _SEGMENT,
   pageBuilder: (_, GoRouterState state) {
     final extraConfiguration = letAs<ModelScreenConfiguration>(state.extra);
     final urlConfiguration = urlToScreenConfiguration(
       url: state.uri,
       isAccessibleOnlyIfLoggedIn:
-          LoginScreenConfiguration.IS_ACCESSIBLE_ONLY_IF_LOGGED_IN,
-      isAccessibleOnlyIfLoggedInAndVerified:
-          LoginScreenConfiguration.IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED,
+          MyOrganizationsScreenConfiguration.IS_ACCESSIBLE_ONLY_IF_LOGGED_IN,
+      isAccessibleOnlyIfLoggedInAndVerified: MyOrganizationsScreenConfiguration
+          .IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED,
       isAccessibleOnlyIfLoggedOut:
-          LoginScreenConfiguration.IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT,
-      isRedirectable: LoginScreenConfiguration.IS_REDIRECTABLE,
-      makeup: LoginScreenConfiguration.screenMakeup,
+          MyOrganizationsScreenConfiguration.IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT,
+      isRedirectable: MyOrganizationsScreenConfiguration.IS_REDIRECTABLE,
+      makeup: MyOrganizationsScreenConfiguration.screenMakeup,
       navigationControlsWidget:
-          LoginScreenConfiguration.NAVIGATION_CONTROLS_WIDGET,
-      title: LoginScreenConfiguration.TITLE.screenTr(),
+          MyOrganizationsScreenConfiguration.NAVIGATION_CONTROLS_WIDGET,
+      title: MyOrganizationsScreenConfiguration.TITLE.screenTr(),
     );
     final configuration = extraConfiguration ?? urlConfiguration;
     return NoTransitionPage(
       key: state.pageKey,
-      child: LoginScreen(
+      child: MyOrganizationsScreen(
         key: ValueKey<String?>(configuration.path),
         configuration: configuration,
       ),
@@ -158,10 +159,11 @@ final generatedLoginScreenRoute = GoRoute(
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-typedef TLoginScreenController = _ControllerBroker<LoginScreen, _View>;
+typedef TMyOrganizationsScreenController
+    = _ControllerBroker<MyOrganizationsScreen, _View>;
 
-typedef TLoginScreenView
-    = ScreenView<LoginScreen, LoginScreenConfiguration, LoginScreenController>;
+typedef TMyOrganizationsScreenView = ScreenView<MyOrganizationsScreen,
+    MyOrganizationsScreenConfiguration, MyOrganizationsScreenController>;
 
-typedef TLoginScreenPageView<T extends ScreenPage>
-    = ScreenPageView<T, LoginScreenConfiguration, LoginScreenController>;
+typedef TMyOrganizationsScreenPageView<T extends ScreenPage> = ScreenPageView<T,
+    MyOrganizationsScreenConfiguration, MyOrganizationsScreenController>;

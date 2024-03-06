@@ -121,7 +121,8 @@ abstract final class G {
   }
 
   static ModelUser? userSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pUserService.value?.pValue.value;
+    return pAppEnvironment
+        .value?.pAppSession.value.pUserService.value?.pValue.value;
   }
 
   // ---------------------------------------------------------------------------
@@ -149,7 +150,8 @@ abstract final class G {
   // ---------------------------------------------------------------------------
 
   static Pod<ModelUserPub?>? userPubPoller() {
-    return pAppEnvironment.value?.pAppSession.value.pUserPubService.value?.pValue;
+    return pAppEnvironment
+        .value?.pAppSession.value.pUserPubService.value?.pValue;
   }
 
   static TPodList userPubPlr() {
@@ -162,7 +164,8 @@ abstract final class G {
   }
 
   static ModelUserPub? userPubSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pUserPubService.value?.pValue.value;
+    return pAppEnvironment
+        .value?.pAppSession.value.pUserPubService.value?.pValue.value;
   }
 
   // ---------------------------------------------------------------------------
@@ -187,7 +190,8 @@ abstract final class G {
   }
 
   static Iterable<ModelEvent>? userEventPoolSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pUserEventsService.value?.pValue.value;
+    return pAppEnvironment
+        .value?.pAppSession.value.pUserEventsService.value?.pValue.value;
   }
 
   // ---------------------------------------------------------------------------
@@ -207,11 +211,13 @@ abstract final class G {
   // ---------------------------------------------------------------------------
 
   static Pod<Iterable<ModelRelationship>?>? relationshipPoolPoller() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pValue;
+    return pAppEnvironment
+        .value?.pAppSession.value.pRelationshipService.value?.pValue;
   }
 
   static Iterable<ModelRelationship>? relationshipPoolSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pValue.value;
+    return pAppEnvironment
+        .value?.pAppSession.value.pRelationshipService.value?.pValue.value;
   }
 
   static TPodList relationshipPoolPlr() {
@@ -219,7 +225,8 @@ abstract final class G {
       pAppEnvironment,
       pAppEnvironment.value?.pAppSession,
       pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pValue,
+      pAppEnvironment
+          .value?.pAppSession.value.pRelationshipService.value?.pValue,
     ];
   }
 
@@ -228,12 +235,13 @@ abstract final class G {
   // ---------------------------------------------------------------------------
 
   static Pod<Map<String, EventService>>? relationshipEventServicePoller() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool;
+    return pAppEnvironment
+        .value?.pAppSession.value.pRelationshipService.value?.pEventServicePool;
   }
 
   static Map<String, EventService>? relationshipEventServicePoolSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pRelationshipService.value?.pEventServicePool.value;
+    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+        ?.pEventServicePool.value;
   }
 
   static TPodList relationshipEventServicePoolPlr() {
@@ -241,7 +249,8 @@ abstract final class G {
       pAppEnvironment,
       pAppEnvironment.value?.pAppSession,
       pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool,
+      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+          ?.pEventServicePool,
     ];
   }
 
@@ -249,9 +258,10 @@ abstract final class G {
   // Relationship Event Pool.
   // ---------------------------------------------------------------------------
 
-  static Iterable<ModelEvent>? relationshipEventPoolSnapshot(String? relationshipId) {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool
-        .value[relationshipId]?.pValue.value;
+  static Iterable<ModelEvent>? relationshipEventPoolSnapshot(
+      String? relationshipId) {
+    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+        ?.pEventServicePool.value[relationshipId]?.pValue.value;
   }
 
   static TPodList relationshipEventPoolPlr(String? relationshipId) {
@@ -259,9 +269,10 @@ abstract final class G {
       pAppEnvironment,
       pAppEnvironment.value?.pAppSession,
       pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool
-          .value[relationshipId]?.pValue,
+      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+          ?.pEventServicePool,
+      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+          ?.pEventServicePool.value[relationshipId]?.pValue,
     ];
   }
 
@@ -274,16 +285,18 @@ abstract final class G {
       pAppEnvironment,
       pAppEnvironment.value?.pAppSession,
       pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool,
-      ...?pAppEnvironment
-          .value?.pAppSession.value.pRelationshipService.value?.pEventServicePool.value.values
+      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+          ?.pEventServicePool,
+      ...?pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+          ?.pEventServicePool.value.values
           .map((e) => e.pValue),
     ];
   }
 
-  static Map<String, Iterable<ModelEvent>>? cumulativeRelationshipEventPoolSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pRelationshipService.value?.pEventServicePool.value
+  static Map<String, Iterable<ModelEvent>>?
+      cumulativeRelationshipEventPoolSnapshot() {
+    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+        ?.pEventServicePool.value
         .map((k, v) => MapEntry(k, v.pValue.value))
         .nonNulls;
   }
@@ -293,8 +306,8 @@ abstract final class G {
   // ---------------------------------------------------------------------------
 
   static Map<String, UserPubService>? connectionServicePoolSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pRelationshipService.value?.pConnectionServicePool.value;
+    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+        ?.pConnectionServicePool.value;
   }
 
   static TPodList connectionServicePoolPlr() {
@@ -302,8 +315,10 @@ abstract final class G {
       pAppEnvironment,
       pAppEnvironment.value?.pAppSession,
       pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pValue,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value?.pConnectionServicePool,
+      pAppEnvironment
+          .value?.pAppSession.value.pRelationshipService.value?.pValue,
+      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
+          ?.pConnectionServicePool,
     ];
   }
 }

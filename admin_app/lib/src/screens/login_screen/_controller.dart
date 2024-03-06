@@ -76,7 +76,8 @@ class LoginScreenController extends TLoginScreenController {
           emailController: emailController,
           onCancel: remove,
           onSend: (email) async {
-            await app.serviceEnvironment.authServiceBroker.sendPasswordResetEmail(
+            await app.serviceEnvironment.authServiceBroker
+                .sendPasswordResetEmail(
               email: email,
             );
           },

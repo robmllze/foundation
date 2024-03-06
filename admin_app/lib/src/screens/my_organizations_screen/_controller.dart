@@ -10,46 +10,56 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
-
-part '_bindings.g.dart';
-part '_controller.dart';
-part '_view.dart';
+part of 'my_organizations_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@GenerateScreenBindings(
-  defaultTitle: "Log In",
-  isRedirectable: false,
-  isAccessibleOnlyIfLoggedOut: true,
-)
-class LoginScreen extends Screen {
+class MyOrganizationsScreenController extends TMyOrganizationsScreenController {
   //
   //
   //
 
-  const LoginScreen({
-    super.key,
-    super.configuration,
-    super.controllerCacheTimeout = Duration.zero,
-  });
+  MyOrganizationsScreenController(super.screen, super.state);
 
   //
   //
   //
 
-  @override
-  _View createState() => _View();
+  final pCounter = Pod<int>(-1);
 
   //
   //
   //
 
-  @override
-  LoginScreenController createController(
-    Screen screen,
-    ScreenView state,
-  ) {
-    return LoginScreenController(screen, state);
+  void incrementCounter() {
+    this.pCounter.update((final value) => value + 1);
   }
+
+  //
+  //
+  //
+
+  @override
+  void initController() {
+    this.pCounter.set(0);
+    super.initController();
+  }
+
+  //
+  //
+  //
+
+  @override
+  void dispose() {
+    // Be sure to dispose all pods here.
+    this.pCounter.dispose();
+    super.dispose();
+  }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+extension MyOrganizationsScreenControllerExtension
+    on MyOrganizationsScreenController {
+  // Tip: You can break up your controller into multiple files using extensions.
 }

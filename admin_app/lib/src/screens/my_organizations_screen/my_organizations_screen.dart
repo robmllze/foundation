@@ -19,16 +19,15 @@ part '_view.dart';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateScreenBindings(
-  defaultTitle: "Log In",
-  isRedirectable: false,
-  isAccessibleOnlyIfLoggedOut: true,
+  defaultTitle: "My Organizations",
+  isAccessibleOnlyIfLoggedIn: true,
 )
-class LoginScreen extends Screen {
+class MyOrganizationsScreen extends Screen {
   //
   //
   //
 
-  const LoginScreen({
+  const MyOrganizationsScreen({
     super.key,
     super.configuration,
     super.controllerCacheTimeout = Duration.zero,
@@ -46,10 +45,10 @@ class LoginScreen extends Screen {
   //
 
   @override
-  LoginScreenController createController(
+  MyOrganizationsScreenController createController(
     Screen screen,
     ScreenView state,
   ) {
-    return LoginScreenController(screen, state);
+    return MyOrganizationsScreenController(screen, state);
   }
 }

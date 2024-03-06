@@ -14,6 +14,7 @@ import '/_common.dart';
 final generatedScreenRoutes = [
   generatedHomeScreenRoute,
   generatedLoginScreenRoute,
+  generatedMyOrganizationsScreenRoute,
   generatedSignUpScreenRoute,
   generatedWelcomeScreenRoute,
 ];
@@ -21,6 +22,7 @@ final generatedScreenRoutes = [
 const SCREEN_MAKERS = [
   makerHomeScreen,
   makerLoginScreen,
+  makerMyOrganizationsScreen,
   makerSignUpScreen,
   makerWelcomeScreen,
 ];

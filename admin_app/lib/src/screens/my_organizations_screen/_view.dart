@@ -10,11 +10,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-part of 'home_screen.dart';
+part of 'my_organizations_screen.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class _View extends THomeScreenView {
+class _View extends TMyOrganizationsScreenView {
   //
   //
   //
@@ -60,12 +60,16 @@ class _View extends THomeScreenView {
           },
         ),
         TextButton(
-          onPressed: () {
-            app.serviceEnvironment.authServiceBroker.logOut();
-          },
-          child: const Text("LOG OUT"),
+          onPressed: this.c.incrementCounter,
+          child: const Text("INCREMENT COUNTER"),
         ),
       ],
     );
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+extension _Labels on MyOrganizationsScreenController {
+  // Tip: You can add functions to your controller here.
 }
