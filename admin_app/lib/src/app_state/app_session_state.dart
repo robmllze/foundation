@@ -14,11 +14,19 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class MyAppSession extends AppSession {
+/// A class to hold the current session's state.
+class AppSessionState extends AppSession {
   //
   //
   //
 
+  AppSessionState(super.serviceEnvironment);
+
+  //
+  //
+  //
+
+  // Here we define all the variables and services to hold the state of the session.
   final pUserService = Pod<UserService?>(null);
   final pUserPubService = Pod<UserPubService?>(null);
   final pUserEventsService = Pod<EventService?>(null);
@@ -28,12 +36,7 @@ class MyAppSession extends AppSession {
   //
   //
 
-  MyAppSession(super.serviceEnvironment);
-
-  //
-  //
-  //
-
+  // Here we set and initialize the session's state variables and services upon starting a new session, i.e. logging in.
   @override
   Future<void> startSession(UserInterface currentUser) async {
     super.startSession(currentUser);
@@ -83,6 +86,7 @@ class MyAppSession extends AppSession {
   //
   //
 
+  // Here we reset all session's state variables and services upon stopping the session, i.e. logging out.
   @override
   Future<void> stopSession() async {
     super.stopSession();

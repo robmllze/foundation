@@ -26,7 +26,7 @@ class _View extends TSignUpScreenView {
         children: [
           MyHeaderBackButton(
             onBackButtonPressed: () =>
-                app.routeManager.go(WelcomeScreenConfiguration()),
+                G.app.routeManager.go(WelcomeScreenConfiguration()),
           ),
           Expanded(
             child: Align(
@@ -90,7 +90,7 @@ class _View extends TSignUpScreenView {
         ),
         SizedBox(height: 12.sc),
         TextButton(
-          onPressed: () => app.routeManager.go(LoginScreenConfiguration()),
+          onPressed: () => G.app.routeManager.go(LoginScreenConfiguration()),
           child: Text("Or Log In||or_log_in".screenTr()),
         ),
       ],

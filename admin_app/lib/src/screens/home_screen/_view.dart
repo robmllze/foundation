@@ -26,7 +26,7 @@ class _View extends THomeScreenView {
         children: [
           MyHeader(
             title: this.widget.configuration?.title,
-            onBackButtonPressed: app.routeManager.goBack,
+            onBackButtonPressed: G.app.routeManager.goBack,
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -61,7 +61,7 @@ class _View extends THomeScreenView {
         ),
         TextButton(
           onPressed: () {
-            app.serviceEnvironment.authServiceBroker.logOut();
+            G.app.serviceEnvironment.authServiceBroker.logOut();
           },
           child: const Text("LOG OUT"),
         ),

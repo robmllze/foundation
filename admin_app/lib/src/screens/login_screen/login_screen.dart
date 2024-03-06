@@ -20,7 +20,7 @@ part '_view.dart';
 
 @GenerateScreenBindings(
   defaultTitle: "Log In",
-  isRedirectable: false,
+  isRedirectable: true,
   isAccessibleOnlyIfLoggedOut: true,
 )
 class LoginScreen extends Screen {

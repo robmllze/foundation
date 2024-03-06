@@ -36,23 +36,22 @@ class SignUpScreenController extends TSignUpScreenController {
   Future<void> signUpWithEmailAndPassword() async {
     final context = this.state.context;
     late void Function() removeOverlay;
-    showAppLogoOverlay(
+    showSpinningAppIconOverlay(
       context,
       remover: (r) {
         removeOverlay = r;
-        app.routeManager.pScreenBreadcrumbs.addSingleExecutionListener(r);
+        G.app.routeManager.pScreenBreadcrumbs.addSingleExecutionListener(r);
       },
     );
     try {
-      await app.serviceEnvironment.authServiceBroker.signUpWithEmailAndPassword(
+      await G.app.serviceEnvironment.authServiceBroker.signUpWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
       await this._createAndWriteNewUserData(
         displayName: nameController.text,
         email: emailController.text,
-        userId:
-            app.serviceEnvironment.authServiceBroker.pCurrentUser.value!.userId,
+        userId: G.app.serviceEnvironment.authServiceBroker.pCurrentUser.value!.userId,
       );
     } catch (e) {
       removeOverlay();
@@ -76,7 +75,7 @@ class SignUpScreenController extends TSignUpScreenController {
     required String userId,
   }) async {
     final userPubId = IdUtils.mapUserIdToPubId(userId: userId);
-    await app.serviceEnvironment.databaseServiceBroker.batchWrite([
+    await G.app.serviceEnvironment.databaseServiceBroker.batchWrite([
       BatchWriteOperation(
         Schema.usersRef(userId: userId),
         model: ModelUser(

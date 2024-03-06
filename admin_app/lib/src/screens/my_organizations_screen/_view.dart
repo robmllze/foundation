@@ -26,7 +26,7 @@ class _View extends TMyOrganizationsScreenView {
         children: [
           MyHeader(
             title: this.widget.configuration?.title,
-            onBackButtonPressed: app.routeManager.goBack,
+            onBackButtonPressed: G.app.routeManager.goBack,
           ),
           Expanded(
             child: SingleChildScrollView(

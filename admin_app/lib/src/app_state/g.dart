@@ -14,27 +14,27 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-MyAppEnvironment get app => G.appEnvironmentSnapshot()!;
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
+/// A static class that acts as the primary access point for retrieving and
+/// handling the state of the app.
 abstract final class G {
-  // ---------------------------------------------------------------------------
+  //.cyan
   // App Root.
-  // ---------------------------------------------------------------------------
+  //.cyan~
+
+  static AppEnvironmentState get app => G.appEnvironmentSnapshot()!;
 
   static TPodList mainWidgetPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.localeManager.pLocaleRef,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.localeManager.pLocaleRef,
       pDefaultAppTheme,
       pDefaultAppScale,
     ];
   }
 
-  static MyAppEnvironment? appEnvironmentSnapshot() {
-    return pAppEnvironment.value;
+  static AppEnvironmentState? appEnvironmentSnapshot() {
+    return pAppState.value;
   }
 
   static AppTheme appThemeSnapshot() {
@@ -45,280 +45,265 @@ abstract final class G {
     return pDefaultAppScale.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // App Session.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
-  static Pod<MyAppSession?>? appSessionPoller() {
-    return pAppEnvironment.value?.pAppSession;
+  static Pod<AppSessionState?>? appSessionPoller() {
+    return pAppState.value?.pAppSession;
   }
 
   static TPodList appSessionPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
+      pAppState,
+      pAppState.value?.pAppSession,
     ];
   }
 
-  static MyAppSession? appSessionSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value;
+  static AppSessionState? appSessionSnapshot() {
+    return pAppState.value?.pAppSession.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Locale Ref.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<LocaleRef>? localeRefPoller() {
-    return pAppEnvironment.value?.localeManager.pLocaleRef;
+    return pAppState.value?.localeManager.pLocaleRef;
   }
 
   static TPodList localeRefPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.localeManager.pLocaleRef,
+      pAppState,
+      pAppState.value?.localeManager.pLocaleRef,
     ];
   }
 
   static LocaleRef? localeRefSnapshot() {
-    return pAppEnvironment.value?.localeManager.pLocaleRef.value;
+    return pAppState.value?.localeManager.pLocaleRef.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // User Service.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<UserService?>? userServicePoller() {
-    return pAppEnvironment.value?.pAppSession.value.pUserService;
+    return pAppState.value?.pAppSession.value.pUserService;
   }
 
   static TPodList userServicePlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pUserService,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pUserService,
     ];
   }
 
   static UserService? userServiceSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pUserService.value;
+    return pAppState.value?.pAppSession.value.pUserService.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // User.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<ModelUser?>? userPoller() {
-    return pAppEnvironment.value?.pAppSession.value.pUserService.value?.pValue;
+    return pAppState.value?.pAppSession.value.pUserService.value?.pValue;
   }
 
   static TPodList userPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pUserService,
-      pAppEnvironment.value?.pAppSession.value.pUserService.value?.pValue,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pUserService,
+      pAppState.value?.pAppSession.value.pUserService.value?.pValue,
     ];
   }
 
   static ModelUser? userSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pUserService.value?.pValue.value;
+    return pAppState.value?.pAppSession.value.pUserService.value?.pValue.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // User Pub Service.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<UserPubService?>? userPubServicePoller() {
-    return pAppEnvironment.value?.pAppSession.value.pUserPubService;
+    return pAppState.value?.pAppSession.value.pUserPubService;
   }
 
   static TPodList userPubServicePlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pUserPubService,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pUserPubService,
     ];
   }
 
   static UserPubService? userPubServiceSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pUserPubService.value;
+    return pAppState.value?.pAppSession.value.pUserPubService.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // User Pub.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<ModelUserPub?>? userPubPoller() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pUserPubService.value?.pValue;
+    return pAppState.value?.pAppSession.value.pUserPubService.value?.pValue;
   }
 
   static TPodList userPubPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pUserPubService,
-      pAppEnvironment.value?.pAppSession.value.pUserPubService.value?.pValue,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pUserPubService,
+      pAppState.value?.pAppSession.value.pUserPubService.value?.pValue,
     ];
   }
 
   static ModelUserPub? userPubSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pUserPubService.value?.pValue.value;
+    return pAppState.value?.pAppSession.value.pUserPubService.value?.pValue.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // User Event Service.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<EventService?>? userEventsServicePoller() {
-    return pAppEnvironment.value?.pAppSession.value.pUserEventsService;
+    return pAppState.value?.pAppSession.value.pUserEventsService;
   }
 
   static EventService? userEventServiceSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pUserEventsService.value;
+    return pAppState.value?.pAppSession.value.pUserEventsService.value;
   }
 
   static TPodList userEventPoolPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pUserEventsService,
-      pAppEnvironment.value?.pAppSession.value.pUserEventsService.value?.pValue,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pUserEventsService,
+      pAppState.value?.pAppSession.value.pUserEventsService.value?.pValue,
     ];
   }
 
   static Iterable<ModelEvent>? userEventPoolSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pUserEventsService.value?.pValue.value;
+    return pAppState.value?.pAppSession.value.pUserEventsService.value?.pValue.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Relationship Service.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<RelationshipService?>? relationshipServicePoller() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService;
+    return pAppState.value?.pAppSession.value.pRelationshipService;
   }
 
   static RelationshipService? relationshipServiceSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value;
+    return pAppState.value?.pAppSession.value.pRelationshipService.value;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Relationship Pool.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<Iterable<ModelRelationship>?>? relationshipPoolPoller() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pRelationshipService.value?.pValue;
+    return pAppState.value?.pAppSession.value.pRelationshipService.value?.pValue;
   }
 
   static Iterable<ModelRelationship>? relationshipPoolSnapshot() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pRelationshipService.value?.pValue.value;
+    return pAppState.value?.pAppSession.value.pRelationshipService.value?.pValue.value;
   }
 
   static TPodList relationshipPoolPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment
-          .value?.pAppSession.value.pRelationshipService.value?.pValue,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pRelationshipService,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pValue,
     ];
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Relationship Event Services.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Pod<Map<String, EventService>>? relationshipEventServicePoller() {
-    return pAppEnvironment
-        .value?.pAppSession.value.pRelationshipService.value?.pEventServicePool;
+    return pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool;
   }
 
   static Map<String, EventService>? relationshipEventServicePoolSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-        ?.pEventServicePool.value;
+    return pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool.value;
   }
 
   static TPodList relationshipEventServicePoolPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-          ?.pEventServicePool,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pRelationshipService,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool,
     ];
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Relationship Event Pool.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Iterable<ModelEvent>? relationshipEventPoolSnapshot(
-      String? relationshipId) {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-        ?.pEventServicePool.value[relationshipId]?.pValue.value;
+    String? relationshipId,
+  ) {
+    return pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool
+        .value[relationshipId]?.pValue.value;
   }
 
   static TPodList relationshipEventPoolPlr(String? relationshipId) {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-          ?.pEventServicePool,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-          ?.pEventServicePool.value[relationshipId]?.pValue,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pRelationshipService,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool
+          .value[relationshipId]?.pValue,
     ];
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Cumulative Relationship Event Pool.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static TPodList cumulativeRelationshipEventPoolPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-          ?.pEventServicePool,
-      ...?pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-          ?.pEventServicePool.value.values
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pRelationshipService,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool,
+      ...?pAppState
+          .value?.pAppSession.value.pRelationshipService.value?.pEventServicePool.value.values
           .map((e) => e.pValue),
     ];
   }
 
-  static Map<String, Iterable<ModelEvent>>?
-      cumulativeRelationshipEventPoolSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-        ?.pEventServicePool.value
+  static Map<String, Iterable<ModelEvent>>? cumulativeRelationshipEventPoolSnapshot() {
+    return pAppState.value?.pAppSession.value.pRelationshipService.value?.pEventServicePool.value
         .map((k, v) => MapEntry(k, v.pValue.value))
         .nonNulls;
   }
 
-  // ---------------------------------------------------------------------------
+  //.cyan
   // Connection Service Pool.
-  // ---------------------------------------------------------------------------
+  //.cyan~
 
   static Map<String, UserPubService>? connectionServicePoolSnapshot() {
-    return pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-        ?.pConnectionServicePool.value;
+    return pAppState
+        .value?.pAppSession.value.pRelationshipService.value?.pConnectionServicePool.value;
   }
 
   static TPodList connectionServicePoolPlr() {
     return [
-      pAppEnvironment,
-      pAppEnvironment.value?.pAppSession,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService,
-      pAppEnvironment
-          .value?.pAppSession.value.pRelationshipService.value?.pValue,
-      pAppEnvironment.value?.pAppSession.value.pRelationshipService.value
-          ?.pConnectionServicePool,
+      pAppState,
+      pAppState.value?.pAppSession,
+      pAppState.value?.pAppSession.value.pRelationshipService,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pValue,
+      pAppState.value?.pAppSession.value.pRelationshipService.value?.pConnectionServicePool,
     ];
   }
 }

@@ -70,14 +70,14 @@ class _View extends TWelcomeScreenView {
           runSpacing: 12.sc,
           children: [
             FilledButton(
-              onPressed: () => app.routeManager.go(LoginScreenConfiguration()),
+              onPressed: () => G.app.routeManager.go(LoginScreenConfiguration()),
               child: SizedBox(
                 width: 80.sc,
                 child: Center(child: Text("Log In||log_in".screenTr())),
               ),
             ),
             FilledButton(
-              onPressed: () => app.routeManager.go(SignUpScreenConfiguration()),
+              onPressed: () => G.app.routeManager.go(SignUpScreenConfiguration()),
               child: SizedBox(
                 width: 80.sc,
                 child: Center(child: Text("Sign Up||sign_up".screenTr())),

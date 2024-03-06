@@ -10,46 +10,24 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
+import '/firebase_options_test.dart' as firebase_options_test;
 
-part '_bindings.g.dart';
-part '_controller.dart';
-part '_view.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@GenerateScreenBindings(
-  defaultTitle: "Home",
-  isRedirectable: true,
-  isAccessibleOnlyIfLoggedIn: true,
-)
-class HomeScreen extends Screen {
-  //
-  //
-  //
+/// Holds the entire state of the app.
+final pAppState = Pod<AppEnvironmentState?>(null);
 
-  const HomeScreen({
-    super.key,
-    super.configuration,
-    super.controllerCacheTimeout = Duration.zero,
-  });
-
-  //
-  //
-  //
-
-  @override
-  _View createState() => _View();
-
-  //
-  //
-  //
-
-  @override
-  HomeScreenController createController(
-    Screen screen,
-    ScreenView state,
-  ) {
-    return HomeScreenController(screen, state);
-  }
+/// Creates the app environment and initializes the state of the app.
+Future<void> createEnvironment() async {
+  // 1. Create a service environment to interact with backend services.
+  final serviceEnvironment = await createFirebaseServiceEnvironment(
+    {
+      ServiceEnvironmentType.TEST: firebase_options_test.DefaultFirebaseOptions.currentPlatform,
+    }[ServiceEnvironment.currentServiceEnvironment]!,
+  );
+  // 2. Create an app environment to hold the state of the app.
+  final appEnvironment = AppEnvironmentState(serviceEnvironment);
+  await pAppState.set(appEnvironment);
 }

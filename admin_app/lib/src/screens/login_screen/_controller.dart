@@ -33,35 +33,31 @@ class LoginScreenController extends TLoginScreenController {
   //
 
   Future<void> logInWithEmailAndPassword() async {
-    await app.serviceEnvironment.authServiceBroker.logInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
+    final context = this.state.context;
+    late void Function() removeOverlay;
+    showSpinningAppIconOverlay(
+      context,
+      remover: (r) {
+        removeOverlay = r;
+        G.app.routeManager.pScreenBreadcrumbs.addSingleExecutionListener(r);
+      },
     );
-    // final context = this.state.context;
-    // late void Function() removeOverlay;
-    // showAppLogoOverlay(
-    //   context,
-    //   remover: (r) {
-    //     removeOverlay = r;
-    //     app.routeManager.pScreenBreadcrumbs.addSingleExecutionListener(r);
-    //   },
-    // );
-    // try {
-    //   await app.serviceEnvironment.authServiceBroker.logInWithEmailAndPassword(
-    //     email: emailController.text,
-    //     password: passwordController.text,
-    //   );
-    // } catch (e) {
-    //   removeOverlay();
+    try {
+      await G.app.serviceEnvironment.authServiceBroker.logInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } catch (e) {
+      removeOverlay();
 
-    //   if (context.mounted) {
-    //     showErrorToastOverlay(
-    //       context,
-    //       error: "$e",
-    //       remover: (r) => Future.delayed(const Duration(seconds: 3), r),
-    //     );
-    //   }
-    // }
+      if (context.mounted) {
+        showErrorToastOverlay(
+          context,
+          error: "$e",
+          remover: (r) => Future.delayed(const Duration(seconds: 3), r),
+        );
+      }
+    }
   }
 
   //
@@ -76,8 +72,7 @@ class LoginScreenController extends TLoginScreenController {
           emailController: emailController,
           onCancel: remove,
           onSend: (email) async {
-            await app.serviceEnvironment.authServiceBroker
-                .sendPasswordResetEmail(
+            await G.app.serviceEnvironment.authServiceBroker.sendPasswordResetEmail(
               email: email,
             );
           },
