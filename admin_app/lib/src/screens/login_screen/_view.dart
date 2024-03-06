@@ -25,8 +25,7 @@ class _View extends TLoginScreenView {
       Column(
         children: [
           MyHeaderBackButton(
-            onBackButtonPressed: () =>
-                G.app.routeManager.go(WelcomeScreenConfiguration()),
+            onBackButtonPressed: () => G.app.routeManager.go(WelcomeScreenConfiguration()),
           ),
           Expanded(
             child: Align(
@@ -90,6 +89,7 @@ class _View extends TLoginScreenView {
           onPressed: () => G.app.routeManager.go(SignUpScreenConfiguration()),
           child: Text("Or Sign Up||or_sign_up".screenTr()),
         ),
+        SizedBox(height: 60.sc),
       ],
     );
   }
