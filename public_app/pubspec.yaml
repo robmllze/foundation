@@ -10,8 +10,8 @@
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
 
-name: admin_app
-description: Welcome to Admin App!
+name: public_app
+description: Welcome to Public App!
 publish_to: none
 version: 0.1.0+1
 

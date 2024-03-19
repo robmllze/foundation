@@ -15,6 +15,7 @@ final generatedScreenRoutes = [
   generatedHomeScreenRoute,
   generatedLoginScreenRoute,
   generatedMyOrganizationsScreenRoute,
+  generatedSignUpScreenRoute,
   generatedWelcomeScreenRoute,
 ];
 
@@ -22,6 +23,7 @@ const SCREEN_MAKERS = [
   makerHomeScreen,
   makerLoginScreen,
   makerMyOrganizationsScreen,
+  makerSignUpScreen,
   makerWelcomeScreen,
 ];
 

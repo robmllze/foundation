@@ -84,6 +84,11 @@ class _View extends TLoginScreenView {
           onPressed: this.c.forgotPassword,
           child: Text("Forgot Password?||forgot_password".screenTr()),
         ),
+        SizedBox(height: 12.sc),
+        TextButton(
+          onPressed: () => G.app.routeManager.go(SignUpScreenConfiguration()),
+          child: Text("Or Sign Up||or_sign_up".screenTr()),
+        ),
         SizedBox(height: 60.sc),
       ],
     );
