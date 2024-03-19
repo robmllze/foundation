@@ -32,6 +32,10 @@ Future<void> createEnvironment() async {
       );
       // 2. Create an app environment to hold the state of the app.
       final appEnvironment = AppEnvironmentState(serviceEnvironment);
+
+      // 3. Set the app environment's locale from the cache.
+
+      //appEnvironment.localeManager.setLocaleFromCache();
       await pAppState.set(appEnvironment);
     },
   );

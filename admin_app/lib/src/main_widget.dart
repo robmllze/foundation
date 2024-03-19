@@ -37,7 +37,7 @@ class MainWidget extends StatelessWidget {
             key: UniqueKey(),
             title: "App||app_title".tr(),
             routerConfig: appEnvironment.routeManager.router,
-            theme: G.appThemeSnapshot().data,
+            theme: G.appThemeSnapshot().themeData,
             debugShowCheckedModeBanner: false,
             builder: (context, body) => Scaffold(body: body),
           );

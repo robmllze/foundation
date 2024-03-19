@@ -116,17 +116,4 @@ class AppEnvironmentState extends AppEnvironment<AppSessionState> {
     defaultOnLoginScreenConfiguration: HomeScreenConfiguration(),
     defaultOnLogoutScreenConfiguration: WelcomeScreenConfiguration(),
   );
-
-  //
-  //
-  //
-
-  final localeManager = LocaleManager(
-    locales: {
-      Languages.AFRIKAANS_ZA,
-      Languages.ENGLISH_US,
-      Languages.GERMAN_DE,
-      Languages.SPANISH_MX,
-    },
-  );
 }

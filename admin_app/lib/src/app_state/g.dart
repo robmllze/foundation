@@ -27,9 +27,9 @@ abstract final class G {
     return [
       pAppState,
       pAppState.value?.pAppSession,
-      pAppState.value?.localeManager.pLocaleRef,
-      pDefaultAppTheme,
-      pDefaultAppScale,
+      AppScalePod.pDefault,
+      AppThemePod.pDefault,
+      AppLocalePod.pDefault,
     ];
   }
 
@@ -37,12 +37,16 @@ abstract final class G {
     return pAppState.value;
   }
 
-  static AppTheme appThemeSnapshot() {
-    return pDefaultAppTheme.value;
+  static AppScaleEnumMixin appScaleSnapshot() {
+    return AppScalePod.pDefault.value;
   }
 
-  static AppScale appScaleSnapshot() {
-    return pDefaultAppScale.value;
+  static AppThemeEnumMixin appThemeSnapshot() {
+    return AppThemePod.pDefault.value;
+  }
+
+  static AppLocaleEnumMixin appLocaleSnapshot() {
+    return AppLocalePod.pDefault.value;
   }
 
   //.cyan
@@ -62,25 +66,6 @@ abstract final class G {
 
   static AppSessionState? appSessionSnapshot() {
     return pAppState.value?.pAppSession.value;
-  }
-
-  //.cyan
-  // Locale Ref.
-  //.cyan~
-
-  static Pod<LocaleRef>? localeRefPoller() {
-    return pAppState.value?.localeManager.pLocaleRef;
-  }
-
-  static TPodList localeRefPlr() {
-    return [
-      pAppState,
-      pAppState.value?.localeManager.pLocaleRef,
-    ];
-  }
-
-  static LocaleRef? localeRefSnapshot() {
-    return pAppState.value?.localeManager.pLocaleRef.value;
   }
 
   //.cyan
