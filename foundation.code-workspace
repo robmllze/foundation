@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "_service_interfaces"
+		},
+		{
+			"path": "_services"
+		},
+		{
+			"path": "_view"
+		},
+		{
+			"path": "_data"
+		},
+		{
+			"path": "___generators"
+		},
+		{
+			"path": "."
+		}
+	]
+}
