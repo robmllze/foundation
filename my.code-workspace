@@ -1,36 +1,40 @@
 {
 	"folders": [
 		{
-			"name": "⚙️ __GENERATORS",
+			"name": "⚙️ GENERATORS",
 			"path": "___generators"
 		},
 		{
-			"name": "🟪 _DATA",
-			"path": "_data"
+			"name": "📓 DOCS",
+			"path": "@docs"
 		},
 		{
-			"name": "🟪 _SERVICE_INTERFACES",
-			"path": "_service_interfaces"
+			"name": "🟪 DATA",
+			"path": "_data/lib"
 		},
 		{
-			"name": "🟪 _SERVICES",
-			"path": "_services"
+			"name": "🟪 SERVICE INTERFACES",
+			"path": "_service_interfaces/lib"
 		},
 		{
-			"name": "🟪 _VIEW",
-			"path": "_view"
+			"name": "🟪 SERVICES",
+			"path": "_services/lib"
+		},
+		{
+			"name": "🟪 VIEW",
+			"path": "_view/lib"
 		},
 		{
 			"name": "🟦 ADMIN APP",
-			"path": "admin_app"
+			"path": "admin_app/lib"
 		},
 		{
 			"name": "🟦 OPERATIONS APP",
-			"path": "operations_app"
+			"path": "operations_app/lib"
 		},
 		{
 			"name": "🟦 PUBLIC APP",
-			"path": "public_app"
+			"path": "public_app/lib"
 		},
 		{
 			"name": "🟨 PROJECT",
