@@ -8,18 +8,16 @@
             "type": "dart"
         },
         {
-            "name": "admin_app (profile mode)",
-            "cwd": "admin_app",
+            "name": "operations_app",
+            "cwd": "operations_app",
             "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
+            "type": "dart"
         },
         {
-            "name": "admin_app (release mode)",
-            "cwd": "admin_app",
+            "name": "public_app",
+            "cwd": "public_app",
             "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
+            "type": "dart"
+        },
     ]
 }
