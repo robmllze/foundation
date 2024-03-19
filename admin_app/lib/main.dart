@@ -20,8 +20,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
   createEnvironment();
+
+  // Initialize scale switching support for the app.
   await AppScalePod(values: MyAppScale.values).getProperty();
+
+  // Initialize theme switching support for the app.
   await AppThemePod(values: MyAppTheme.values).getProperty();
+
+  // Initialize locale switching support for the app.
   await AppLocalePod(values: MyAppLocale.values).getProperty();
+
   runApp(const MainWidget());
 }
