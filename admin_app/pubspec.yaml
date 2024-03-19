@@ -37,11 +37,11 @@ dependencies:
   _view:
     path: ../_view
 
-  xyz_config: ^0.18.0
-  xyz_flutter_plus: ^0.34.4
-  xyz_gen_annotations: ^0.11.2
+  xyz_config: ^0.18.1
+  xyz_flutter_plus: ^0.34.5
+  xyz_gen_annotations: ^0.11.4
   xyz_pod: ^0.20.0
-  xyz_utils: ^0.46.0
+  xyz_utils: ^0.47.0
 
   go_router: ^13.2.0
 
