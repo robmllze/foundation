@@ -29,7 +29,7 @@ abstract final class G {
       pAppState.value?.pAppSession,
       AppScalePod.pDefault,
       AppThemePod.pDefault,
-      AppLocalePod.pDefault,
+      // AppLocalePod.pDefault,
     ];
   }
 

@@ -25,5 +25,6 @@
         "**/firebase_test": true,
         "**/.firebase": true,
         "**/.firebase_deployment_scripts": true,
+        "foundation.code-workspace": true,
     },
 }
