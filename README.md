@@ -1,4 +1,6 @@
-# Cloning
+# Cloning and opening the workspace
+
+**Copy the following chunk and paste it into your terminal to clone the repositories and open the workspace in VSCode.**
 
 ```bash
 git clone -b main https://github.com/robmllze/foundation.git foundation && cd foundation
