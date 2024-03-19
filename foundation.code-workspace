@@ -1,21 +1,27 @@
 {
 	"folders": [
 		{
-			"path": "_service_interfaces"
-		},
-		{
-			"path": "_services"
-		},
-		{
-			"path": "_view"
-		},
-		{
-			"path": "_data"
-		},
-		{
+			"name": "___generators",
 			"path": "___generators"
 		},
 		{
+			"name": "_data",
+			"path": "_data"
+		},
+		{
+			"name": "_service_interfaces",
+			"path": "_service_interfaces"
+		},
+		{
+			"name": "_services",
+			"path": "_services"
+		},
+		{
+			"name": "_view",
+			"path": "_view"
+		},
+		{
+			"name": "foundation",
 			"path": "."
 		}
 	]
