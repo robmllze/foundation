@@ -14,4 +14,5 @@ dart pub get -C _view
 dart pub get -C admin_app
 dart pub get -C operations_app
 dart pub get -C public_app
+#code my.code-workspace
 
