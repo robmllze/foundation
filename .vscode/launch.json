@@ -1,23 +1,4 @@
 {
     "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "admin_app",
-            "cwd": "admin_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "operations_app",
-            "cwd": "operations_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "public_app",
-            "cwd": "public_app",
-            "request": "launch",
-            "type": "dart"
-        },
-    ]
+    "configurations": []
 }
