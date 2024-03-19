@@ -5,25 +5,36 @@
 			"path": "___generators"
 		},
 		{
-			"name": "🔶 _DATA",
+			"name": "🟪 _DATA",
 			"path": "_data"
 		},
 		{
-			"name": "🔶 _SERVICE_INTERFACES",
+			"name": "🟪 _SERVICE_INTERFACES",
 			"path": "_service_interfaces"
 		},
 		{
-			"name": "🔶 _SERVICES",
+			"name": "🟪 _SERVICES",
 			"path": "_services"
 		},
 		{
-			"name": "🔶 _VIEW",
+			"name": "🟪 _VIEW",
 			"path": "_view"
 		},
 		{
-			"name": "🔷 PROJECT",
+			"name": "🟦 ADMIN APP",
+			"path": "admin_app"
+		},
+		{
+			"name": "🟦 OPERATIONS APP",
+			"path": "operations_app"
+		},
+		{
+			"name": "🟦 PUBLIC APP",
+			"path": "public_app"
+		},
+		{
+			"name": "🟨 PROJECT",
 			"path": "."
 		}
 	],
-	"settings": {}
 }

@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/.dart_tool/": true,
+        "**/.DS_Store": true,
+        "**/.firebase": true,
+        "**/.firebaserc": true,
+        "**/.flutter-plugins-dependencies": true,
+        "**/.flutter-plugins": true,
+        "**/.gitignore": true,
+        "**/.metadata": true,
+        "**/analysis_options.yaml": true,
+        "**/build": true,
+        "**/firebase.json": true,
+        "**/firestore.indexes.json": true,
+        "**/firestore.rules": true,
+        "**/pubspec.lock": true,
+        "**/storage.rules": true,
+    },
+}
