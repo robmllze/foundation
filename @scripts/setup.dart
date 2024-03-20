@@ -18,21 +18,16 @@ void main(List<String> args) async {
   final repo = "https://github.com/robmllze/foundation.git";
   final name = "foundation";
   await $("git clone --recurse-submodules -b main $repo $name");
-  await Future.wait([
-    $("git checkout main", [name, "___generators"]),
-    $("git checkout main", [name, "_data"]),
-    $("git checkout main", [name, "_service_interfaces"]),
-    $("git checkout main", [name, "_services"]),
-    $("git checkout main", [name, "_view"]),
-  ]);
-  await Future.wait([
-    $("dart pub get", [name, "___generators"]),
-    $("dart pub get", [name, "_data"]),
-    $("dart pub get", [name, "_service_interfaces"]),
-    $("dart pub get", [name, "_services"]),
-    $("dart pub get", [name, "_view"]),
-    $("code my.code-workspace", [name]),
-  ]);
+  final submodules = [
+    "___generators",
+    "_data",
+    "_service_interfaces",
+    "_services",
+    "_view",
+  ];
+  await Future.wait(submodules.map((e) => $("git checkout main", [name, e])));
+  await Future.wait(submodules.map((e) => $("dart pub get", [name, e])));
+  await $("code my.code-workspace", [name]);
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
