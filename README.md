@@ -10,19 +10,11 @@ This repository serves as a foundational workspace for effective Flutter applica
 4. Copy the entire block of commands below and paste it into your terminal, then press Enter or Return to clone and set up the workspace:
 
 ```bash
-git clone -b main https://github.com/robmllze/foundation.git foundation
-cd foundation
-git clone -b main https://github.com/robmllze/___generators.git
-git clone -b main https://github.com/robmllze/_data-foundation.git _data
-git clone -b main https://github.com/robmllze/_service_interfaces-foundation.git _service_interfaces
-git clone -b main https://github.com/robmllze/_view-foundation.git _view
-git clone -b main https://github.com/robmllze/_services-foundation.git _services
-dart pub get -C ___generators
-dart pub get -C _data
-dart pub get -C _service_interfaces
-dart pub get -C _services
-dart pub get -C _view
-code my.code-workspace
+cd desktop
+curl -o setup.zsh https://raw.githubusercontent.com/robmllze/foundation/main/setup.zsh
+chmod +x setup.zsh
+./setup.sh
+rm setup.zsh
 ```
 
 ## License

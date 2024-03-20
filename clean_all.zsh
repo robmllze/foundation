@@ -17,8 +17,6 @@ cd _data && flutter clean && flutter pub get && cd ..
 cd _service_interfaces && flutter clean && flutter pub get && cd ..
 cd _services && flutter clean && flutter pub get &&  cd ..
 cd _view && flutter clean && flutter pub get && cd ..
-
-# These will fail if the corresponding projects are not present, so just ignore the errors.
 cd admin_app && flutter clean && flutter pub get && cd .. 
 cd operations_app && flutter clean && flutter pub get && cd ..
 cd public_app && flutter clean && flutter pub get && cd ..
