@@ -20,11 +20,8 @@ void main(List<String> args) async {
   final name = "foundation";
   await Future.wait([
     $("git clone -b main ${src}foundation.git $name"),
-    $("git submodule init ___generators", name),
-    $("git submodule initt _data", name),
-    $("git submodule init _service_interfaces", name),
-    $("git submodule init _view", name),
-    $("git clone -b $servicesBranchName ${src}_services-foundation.git _services", name),
+    $("git submodule init", name),
+    $("git submodule update", name),
   ]);
   await Future.wait([
     $("dart pub get -C ___generators", name),
