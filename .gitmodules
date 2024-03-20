@@ -10,7 +10,6 @@
     path = _service_interfaces
     url = https://github.com/robmllze/_service_interfaces-foundation.git
 
-
 [submodule "_services"]
     path = _services
     url = https://github.com/robmllze/_services-foundation.git
