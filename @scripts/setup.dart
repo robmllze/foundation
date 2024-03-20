@@ -19,6 +19,13 @@ void main(List<String> args) async {
   final src = "https://github.com/robmllze/";
   final name = "foundation";
   await $("git clone --recurse-submodules -b main ${src}foundation.git $name");
+  await Future.wait([
+    $("git checkout main", [name, "___generators"]),
+    $("git checkout main", [name, "_data"]),
+    $("git checkout main", [name, "_service_interfaces"]),
+    $("git checkout main", [name, "_services"]),
+    $("git checkout main", [name, "_view"]),
+  ]);
   await $("git checkout $servicesBranchName", [name, "_services"]);
   await Future.wait([
     $("dart pub get", [name, "___generators"]),
