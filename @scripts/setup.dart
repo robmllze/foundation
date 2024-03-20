@@ -18,8 +18,7 @@ void main(List<String> args) async {
   final servicesBranchName = args.isNotEmpty ? args[0] : "with_firebase";
   final src = "https://github.com/robmllze/";
   final name = "foundation";
-  await $("git clone -b main ${src}foundation.git $name"),
-  await $("git submodule update --init --recursive", name);
+  await $("git clone --recurse-submodules -b main ${src}foundation.git $name");
   await $("git checkout $servicesBranchName", "$name/_services");
   await Future.wait([
     $("dart pub get -C ___generators", name),
