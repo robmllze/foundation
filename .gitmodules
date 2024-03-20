@@ -1,6 +1,6 @@
 [submodule "___generators"]
     path = ___generators
-    url = https://github.com/robmllze/___generators-foundation.git
+    url = https://github.com/robmllze/___generators.git
 
 [submodule "_data"]
     path = _data
