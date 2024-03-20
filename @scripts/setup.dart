@@ -45,24 +45,33 @@ Future<void> cloneRepositories(String servicesBranchName) async {
     {
       "name": "___generators",
       "branch": "main",
-      "url": "https://github.com/robmllze/___generators.git"
+      "url": "https://github.com/robmllze/___generators.git",
     },
-    {"name": "_data", "branch": "main", "url": "https://github.com/robmllze/_data-foundation.git"},
+    {
+      "name": "_data",
+      "branch": "main",
+      "url": "https://github.com/robmllze/_data-foundation.git",
+    },
     {
       "name": "_service_interfaces",
       "branch": "main",
-      "url": "https://github.com/robmllze/_service_interfaces-foundation.git"
+      "url": "https://github.com/robmllze/_service_interfaces-foundation.git",
     },
-    {"name": "_view", "branch": "main", "url": "https://github.com/robmllze/_view-foundation.git"},
+    {
+      "name": "_view",
+      "branch": "main",
+      "url": "https://github.com/robmllze/_view-foundation.git",
+    },
     {
       "name": "_services",
       "branch": servicesBranchName,
-      "url": "https://github.com/robmllze/_services-foundation.git"
+      "url": "https://github.com/robmllze/_services-foundation.git",
     },
   ];
 
   for (final r in repos) {
-    await Process.run("git", ["clone", "-b", r["branch"]!, r["url"]! + " " + r["name"]!]);
+    print(["git", "clone", "-b", r["branch"]!, r["url"]!, r["name"]!].join(" "));
+    await Process.run("git", ["clone", "-b", r["branch"]!, r["url"]!, r["name"]!]);
     if (r["name"] == "foundation") {
       Directory.current = Directory("${Directory.current.path}/${r["name"]}");
     }
