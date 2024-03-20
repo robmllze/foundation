@@ -10,16 +10,17 @@
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
 
+# Get the services branch name from the first argument. Defaults to "with_firebase".
+$SERVICES_BRANCH_NAME = if ($args[0]) { $args[0] } else { "with_firebase" }
+
 # Clone repositories.
 git clone -b main https://github.com/robmllze/foundation.git foundation
-Set-Location foundation
+Set-Location -Path foundation
 git clone -b main https://github.com/robmllze/___generators.git
 git clone -b main https://github.com/robmllze/_data-foundation.git _data
 git clone -b main https://github.com/robmllze/_service_interfaces-foundation.git _service_interfaces
 git clone -b main https://github.com/robmllze/_view-foundation.git _view
-
-# Change "with_firebase" to "main" or "with_aws" if you want to use a different backend environment.
-git clone -b with_firebase https://github.com/robmllze/_services-foundation.git _services
+git clone -b $SERVICES_BRANCH_NAME https://github.com/robmllze/_services-foundation.git _services
 
 # Get dependencies.
 dart pub get -C ___generators

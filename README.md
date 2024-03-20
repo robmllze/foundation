@@ -10,13 +10,13 @@ This repository serves as a foundational workspace for effective Flutter applica
 4. On macOS or Linux, copy the following chunk into your terminal and hit return:
 ```bash
 curl -o setup.zsh https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.zsh
-chmod +x setup.zsh && ./setup.zsh
+chmod +x setup.zsh && ./setup.zsh with_firebase
 rm setup.zsh
 ```
 5. On Windows, copy the following chunk into PowerShell and hit enter:
 ```powershell
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.ps1" -OutFile "setup.ps1"
-./setup.ps1
+./setup.ps1 with_firebase
 Remove-Item -Path "setup.ps1"
 ```
 
