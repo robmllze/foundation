@@ -21,9 +21,9 @@ Future<void> main(List<String> args) async {
     clean(["_service_interfaces"]),
     clean(["_services"]),
     clean(["_view"]),
-    clean(["apps", "admin_app"]),
-    clean(["apps", "operations_app"]),
-    clean(["apps", "public_app"]),
+    // clean(["apps", "admin_app"]),
+    // clean(["apps", "operations_app"]),
+    // clean(["apps", "public_app"]),
   ]);
 }
 
