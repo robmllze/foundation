@@ -16,7 +16,7 @@ import "dart:io";
 
 void main(List<String> args) async {
   final repo = "https://github.com/robmllze/foundation.git";
-  final name = "foundation";
+  final name = args.elementAtOrNull(0) ?? "foundation";
   await $("git clone --recurse-submodules -b main $repo $name");
   final submodules = [
     "___generators",
