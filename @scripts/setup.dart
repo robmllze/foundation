@@ -38,7 +38,10 @@ void main(List<String> args) async {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<ProcessResult> $(String command, [String? workingDirectory]) async {
+Future<ProcessResult> $(
+  String command, [
+  String? workingDirectory,
+]) async {
   final parts = command.split(" ");
   return await Process.run(
     parts[0],

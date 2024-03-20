@@ -14,34 +14,26 @@ import "dart:io";
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<void> main(List<String> args) async {
-  Future.wait([
-    clean("___generators"),
-    clean("_data"),
-    clean("_service_interfaces"),
-    clean("_services"),
-    clean("_view"),
-    // clean("apps/admin_app"),
-    // clean("apps/operations_app"),
-    // clean("apps/public_app"),
-  ]);
+void main() {
+  for (final dirPath in [
+    //".",
+    "_data",
+    "_service_interfaces",
+    "_services",
+    "_view",
+  ]) {
+    toggleGit(dirPath);
+  }
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<void> clean(String workingDirectory) async {
-  await $("flutter clean", workingDirectory);
-  await $("flutter pub get", workingDirectory);
-}
-
-Future<ProcessResult> $(
-  String command, [
-  String? workingDirectory,
-]) async {
-  final parts = command.split(" ");
-  return await Process.run(
-    parts[0],
-    parts.sublist(1),
-    workingDirectory: workingDirectory,
-  );
+void toggleGit(String dirPath) {
+  final gitPath = Directory("${dirPath}/.git");
+  final gitDisabledPath = Directory("${dirPath}/.git.disabled");
+  if (gitPath.existsSync()) {
+    gitPath.renameSync("${dirPath}/.git.disabled");
+  } else if (gitDisabledPath.existsSync()) {
+    gitDisabledPath.renameSync("${dirPath}/.git");
+  }
 }
