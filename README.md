@@ -9,15 +9,14 @@ This repository serves as a foundational workspace for effective Flutter applica
 3. Navigate to the directory where you keep your projects, for instance, using `cd ~/projects`. Avoid using directories on macOS that synchronize with cloud services, as this can lead to problems with Flutter.
 4. On macOS or Linux, open the terminal, navigate to your projects folder then copy the following chunk into it and hit return:
 ```bash
-curl -o setup.zsh https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.zsh
-chmod +x setup.zsh && ./setup.zsh with_firebase
-rm setup.zsh
+curl -o setup.dart https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart
+dart setup.dart with_firebase
 ```
 5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.ps1" -OutFile "setup.ps1"
-./setup.ps1 with_firebase
-Remove-Item -Path "setup.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart" -OutFile "setup.dart"
+./setup.dart with_firebase
+Remove-Item -Path "setup.dart"
 ```
 
 ## License
