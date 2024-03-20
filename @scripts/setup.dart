@@ -16,63 +16,25 @@ import "dart:io";
 
 Future<void> main(List<String> args) async {
   final servicesBranchName = args.isNotEmpty ? args[0] : "with_firebase";
-
-  // Clone repositories
-  await cloneRepositories(servicesBranchName);
-
-  // Get dependencies for each project directory
-  await getDependencies([
-    "___generators",
-    "_data",
-    "_service_interfaces",
-    "_services",
-    "_view",
-  ]);
-
-  // Open workspace in VS Code
-  await Process.run("code", ["my.code-workspace"]);
+  final src = "https://github.com/robmllze/";
+  await $("git clone -b main ${src}foundation.git foundation");
+  Directory.current = "${Directory.current.path}/foundation";
+  await $("git clone -b main ${src}___generators.git ___generators");
+  await $("git clone -b main ${src}_data-foundation.git _data");
+  await $("git clone -b main ${src}_service_interfaces-foundation.git _service_interfaces");
+  await $("git clone -b main ${src}_view-foundation.git _view");
+  await $("git clone -b $servicesBranchName ${src}_services-foundation.git _services");
+  await $("dart pub get -C ___generators");
+  await $("dart pub get -C _data");
+  await $("dart pub get -C _service_interfaces");
+  await $("dart pub get -C _services");
+  await $("dart pub get -C _view");
+  await $("dcode my.code-workspace");
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<void> cloneRepositories(String servicesBranchName) async {
-  final repos = [
-    {
-      "name": "foundation",
-      "branch": "main",
-      "url": "https://github.com/robmllze/foundation.git",
-    },
-    {
-      "name": "___generators",
-      "branch": "main",
-      "url": "https://github.com/robmllze/___generators.git"
-    },
-    {"name": "_data", "branch": "main", "url": "https://github.com/robmllze/_data-foundation.git"},
-    {
-      "name": "_service_interfaces",
-      "branch": "main",
-      "url": "https://github.com/robmllze/_service_interfaces-foundation.git"
-    },
-    {"name": "_view", "branch": "main", "url": "https://github.com/robmllze/_view-foundation.git"},
-    {
-      "name": "_services",
-      "branch": servicesBranchName,
-      "url": "https://github.com/robmllze/_services-foundation.git"
-    },
-  ];
-
-  for (final repo in repos) {
-    await Process.run("git", ["clone", "-b", repo["branch"]!, repo["url"]!, repo["name"]!]);
-    if (repo["name"] == "foundation") {
-      Directory.current = Directory("${Directory.current.path}/${repo["name"]}");
-    }
-  }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-Future<void> getDependencies(List<String> projectDirs) async {
-  for (final dir in projectDirs) {
-    await Process.run("dart", ["pub", "get", "-C", dir]);
-  }
+Future<ProcessResult> $(String command) async {
+  final parts = command.split(" ");
+  return await Process.run(parts[0], parts.sublist(1));
 }
