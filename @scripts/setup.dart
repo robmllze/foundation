@@ -70,7 +70,6 @@ Future<void> cloneRepositories(String servicesBranchName) async {
   ];
 
   for (final r in repos) {
-    print(["git", "clone", "-b", r["branch"]!, r["url"]!, r["name"]!].join(" "));
     await Process.run("git", ["clone", "-b", r["branch"]!, r["url"]!, r["name"]!]);
     if (r["name"] == "foundation") {
       Directory.current = Directory("${Directory.current.path}/${r["name"]}");
