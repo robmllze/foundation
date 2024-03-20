@@ -25,11 +25,11 @@ Future<void> main(List<String> args) async {
     $("git clone -b main ${src}_service_interfaces-foundation.git _service_interfaces", name),
     $("git clone -b main ${src}_view-foundation.git _view", name),
     $("git clone -b $servicesBranchName ${src}_services-foundation.git _services", name),
-    $("dart pub get -C ___generators", name),
-    $("dart pub get -C _data", name),
-    $("dart pub get -C _service_interfaces", name),
-    $("dart pub get -C _services", name),
-    $("dart pub get -C _view", name),
+    // $("dart pub get -C ___generators", name),
+    // $("dart pub get -C _data", name),
+    // $("dart pub get -C _service_interfaces", name),
+    // $("dart pub get -C _services", name),
+    // $("dart pub get -C _view", name),
     $("code my.code-workspace", name),
   ]);
 }
