@@ -18,9 +18,9 @@ void main() {
   for (final dirPath in [
     //".",
     "_data",
-    "_service_interfaces",
-    "_services",
-    "_view",
+    // "_service_interfaces",
+    // "_services",
+    // "_view",
   ]) {
     toggleGit(dirPath);
   }

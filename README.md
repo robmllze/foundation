@@ -10,13 +10,13 @@ This repository serves as a foundational workspace for effective Flutter applica
 4. On macOS or Linux, open the terminal, navigate to your projects folder then copy the following chunk into it and hit return:
 ```bash
 curl -o setup.dart https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart
-dart setup.dart with_firebase
+dart setup.dart
 rm setup.dart
 ```
 5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
 ```powershell
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart" -OutFile "setup.dart"
-./setup.dart with_firebase
+dart setup.dart
 Remove-Item -Path "setup.dart"
 ```
 

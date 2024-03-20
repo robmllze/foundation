@@ -15,7 +15,6 @@ import "dart:io";
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void main(List<String> args) async {
-  final servicesBranchName = args.isNotEmpty ? args[0] : "with_firebase";
   final repo = "https://github.com/robmllze/foundation.git";
   final name = "foundation";
   await $("git clone --recurse-submodules -b main $repo $name");
@@ -23,7 +22,7 @@ void main(List<String> args) async {
     $("git checkout main", [name, "___generators"]),
     $("git checkout main", [name, "_data"]),
     $("git checkout main", [name, "_service_interfaces"]),
-    $("git checkout $servicesBranchName", [name, "_services"]),
+    $("git checkout main", [name, "_services"]),
     $("git checkout main", [name, "_view"]),
   ]);
   await Future.wait([
