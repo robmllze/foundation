@@ -29,11 +29,13 @@ void main() {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void toggleGit(String dirPath) {
-  final gitPath = Directory("${dirPath}/.git");
-  final gitDisabledPath = Directory("${dirPath}/.git.disabled");
+  const gitFolderName = ".git";
+  const gitDisabledFolderName = "disabled-git";
+  final gitPath = Directory("${dirPath}/$gitFolderName");
+  final gitDisabledPath = Directory("${dirPath}/$gitDisabledFolderName");
   if (gitPath.existsSync()) {
-    gitPath.renameSync("${dirPath}/.git.disabled");
+    gitPath.renameSync("${dirPath}/$gitDisabledFolderName");
   } else if (gitDisabledPath.existsSync()) {
-    gitDisabledPath.renameSync("${dirPath}/.git");
+    gitDisabledPath.renameSync("${dirPath}/$gitFolderName");
   }
 }
