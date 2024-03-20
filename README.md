@@ -11,6 +11,7 @@ This repository serves as a foundational workspace for effective Flutter applica
 ```bash
 curl -o setup.dart https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart
 dart setup.dart with_firebase
+rm setup.dart
 ```
 5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
 ```powershell

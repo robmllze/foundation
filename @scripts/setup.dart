@@ -51,22 +51,22 @@ Future<void> cloneRepositories(String servicesBranchName) async {
       "url": "https://github.com/robmllze/___generators.git"
     },
     {
-      "name": "_data-foundation",
+      "name": "_data",
       "branch": "main",
       "url": "https://github.com/robmllze/_data-foundation.git"
     },
     {
-      "name": "_service_interfaces-foundation",
+      "name": "_service_interfaces",
       "branch": "main",
       "url": "https://github.com/robmllze/_service_interfaces-foundation.git"
     },
     {
-      "name": "_view-foundation",
+      "name": "_view",
       "branch": "main",
       "url": "https://github.com/robmllze/_view-foundation.git"
     },
     {
-      "name": "_services-foundation",
+      "name": "_services",
       "branch": servicesBranchName,
       "url": "https://github.com/robmllze/_services-foundation.git"
     },
