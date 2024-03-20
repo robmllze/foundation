@@ -19,12 +19,8 @@ void main(List<String> args) async {
   final src = "https://github.com/robmllze/";
   final name = "foundation";
   await Future.wait([
-    $("git clone -b main ${src}foundation.git $name"),
-    $("git clone -b main ${src}___generators.git ___generators", name),
-    $("git clone -b main ${src}_data-foundation.git _data", name),
-    $("git clone -b main ${src}_service_interfaces-foundation.git _service_interfaces", name),
-    $("git clone -b main ${src}_view-foundation.git _view", name),
-    $("git clone -b $servicesBranchName ${src}_services-foundation.git _services", name),
+    $("git clone --recurse-submodules -b main ${src}foundation.git $name"),
+    $("git checkout $servicesBranchName", "$name/_services"),
   ]);
   await Future.wait([
     $("dart pub get -C ___generators", name),
