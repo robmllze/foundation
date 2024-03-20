@@ -25,6 +25,10 @@
 			"path": "_view/lib"
 		},
 		{
+			"name": "🟧 APPS",
+			"path": "apps"
+		},
+		{
 			"name": "🟨 FOUNDATION",
 			"path": "."
 		}

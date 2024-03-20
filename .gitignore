@@ -6,3 +6,4 @@
 **/.metadata
 **/build
 **/pubspec.lock
+**/apps/**
