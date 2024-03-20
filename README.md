@@ -20,10 +20,6 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/ma
 Remove-Item -Path "setup.ps1"
 ```
 
-## Forking
-
-You can fork this repository and use it as a starting point for your own projects. Navigate to https://github.com/new/import and input the URL of this repository into the field provided. You'll have the option to designate the repository as either public or private. You can then clone your new repository and start working on your project. You will need to adust the setup scripts in [`@scripts/`](https://github.com/robmllze/foundation/tree/main/%40scripts) to reflect the new repository URL.
-
 ## License
 
 This project is released under the MIT License. See [LICENSE](https://raw.githubusercontent.com/robmllze/foundation/main/LICENSE) for more information.
