@@ -7,13 +7,13 @@ This repository serves as a foundational workspace for effective Flutter applica
 1. Install Dart/Flutter on your system.
 2. Proceed to download and set up Visual Studio Code, ensuring the `code` command is integrated into your system's `PATH`.
 3. Navigate to the directory where you keep your projects, for instance, using `cd ~/projects`. Avoid using directories on macOS that synchronize with cloud services, as this can lead to problems with Flutter.
-4. On macOS or Linux, copy the following chunk into your terminal and hit return:
+4. On macOS or Linux, open the terminal, navigate to your projects folder then copy the following chunk into it and hit return:
 ```bash
 curl -o setup.zsh https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.zsh
 chmod +x setup.zsh && ./setup.zsh with_firebase
 rm setup.zsh
 ```
-5. On Windows, copy the following chunk into PowerShell and hit enter:
+5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
 ```powershell
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.ps1" -OutFile "setup.ps1"
 ./setup.ps1 with_firebase
