@@ -1,4 +1,4 @@
-# Foundational Workspace for Flutter1
+# Foundational Workspace for Flutter2
 
 This repository serves as a foundational workspace for effective Flutter application development. It is an amalgamation of several repositories that are designed to work together to provide a comprehensive and scalable architecture for Flutter applications.
 
