@@ -1,4 +1,4 @@
-# Foundational Workspace for Flutter2
+# Foundational Workspace for Flutter
 
 This repository serves as a foundational workspace for effective Flutter application development. It is an amalgamation of several repositories that are designed to work together to provide a comprehensive and scalable architecture for Flutter applications.
 
@@ -10,7 +10,7 @@ This repository serves as a foundational workspace for effective Flutter applica
 4. On macOS or Linux, open the terminal, navigate to your projects folder then copy the following chunk into it and hit return:
 ```bash
 curl -o setup.dart https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart
-dart setup.dart your_project_name
+dart setup.dart jobxcel_apps
 rm setup.dart
 ```
 5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
