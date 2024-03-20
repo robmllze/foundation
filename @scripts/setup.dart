@@ -23,10 +23,9 @@ void main(List<String> args) async {
     $("git checkout main", [name, "___generators"]),
     $("git checkout main", [name, "_data"]),
     $("git checkout main", [name, "_service_interfaces"]),
-    $("git checkout main", [name, "_services"]),
+    $("git checkout $servicesBranchName", [name, "_services"]),
     $("git checkout main", [name, "_view"]),
   ]);
-  await $("git checkout $servicesBranchName", [name, "_services"]);
   await Future.wait([
     $("dart pub get", [name, "___generators"]),
     $("dart pub get", [name, "_data"]),
