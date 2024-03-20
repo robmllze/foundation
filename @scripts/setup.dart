@@ -27,9 +27,6 @@ Future<void> main(List<String> args) async {
     "_service_interfaces",
     "_services",
     "_view",
-    "admin_app",
-    "operations_app",
-    "public_app",
   ]);
 
   // Open workspace in VS Code
@@ -82,8 +79,8 @@ Future<void> cloneRepositories(String servicesBranchName) async {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<void> getDependencies(List<String> projectDirs) async {
-  for (final dir in projectDirs) {
+Future<void> getDependencies(List<String> dirs) async {
+  for (final dir in dirs) {
     await Process.run("dart", ["pub", "get", "-C", dir]);
   }
 }
