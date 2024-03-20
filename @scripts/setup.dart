@@ -32,12 +32,12 @@ void main(List<String> args) async {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<ProcessResult> $(
+Future<void> $(
   String command, [
   List<String> workingDirectory = const [],
 ]) async {
   final parts = command.split(" ");
-  return await Process.run(
+  await Process.run(
     parts[0],
     parts.sublist(1),
     workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join("/") : null,
