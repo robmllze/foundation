@@ -19,7 +19,9 @@ git clone -b main https://github.com/robmllze/___generators.git
 git clone -b main https://github.com/robmllze/_data-foundation.git _data
 git clone -b main https://github.com/robmllze/_service_interfaces-foundation.git _service_interfaces
 git clone -b main https://github.com/robmllze/_view-foundation.git _view
-git clone -b main https://github.com/robmllze/_services-foundation.git _services
+
+# Change "with_firebase" to "main" or "with_aws" if you want to use a different backend environment.
+git clone -b with_firebase https://github.com/robmllze/_services-foundation.git _services
 
 # Get dependencies.
 dart pub get -C ___generators
