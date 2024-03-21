@@ -16,7 +16,7 @@ import 'dart:io';
 
 void main(List<String> args) async {
   final fork = getArg(args, '-fork') ?? 'https://github.com/robmllze/foundation.git';
-  final name = getArg(args, '-project') ?? 'foundation';
+  final name = getArg(args, '-name') ?? 'foundation';
   await $('git clone --recurse-submodules -b main $fork $name');
   final submodules = [
     '___generators',
@@ -74,10 +74,8 @@ Future<bool> $(
 Future<void> rm(String path) async {
   var entity = FileSystemEntity.typeSync(path);
   if (entity == FileSystemEntityType.file) {
-    print("Deleting file: $path");
     await File(path).delete();
   } else if (entity == FileSystemEntityType.directory) {
-    print("Deleting directory: $path");
     await Directory(path).delete(recursive: true);
   }
 }
