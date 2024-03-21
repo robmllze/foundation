@@ -20,3 +20,4 @@ git remote add upstream https://github.com/robmllze/foundation.git
 git fetch upstream
 git merge upstream/main --allow-unrelated-histories --no-edit
 find . -type d -empty -delete
+rm -f .gitmodules
