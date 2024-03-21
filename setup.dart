@@ -74,8 +74,10 @@ Future<bool> $(
 Future<void> rm(String path) async {
   var entity = FileSystemEntity.typeSync(path);
   if (entity == FileSystemEntityType.file) {
+    print("Deleting file: $path");
     await File(path).delete();
   } else if (entity == FileSystemEntityType.directory) {
+    print("Deleting directory: $path");
     await Directory(path).delete(recursive: true);
   }
 }
