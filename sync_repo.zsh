@@ -14,8 +14,9 @@
 # change 'main' to another branch if necessary.
 git init
 git add .
-git commit -m 'upstream'
+git commit -m Upstream
 git remote remove upstream
 git remote add upstream https://github.com/robmllze/foundation.git
 git fetch upstream
 git merge upstream/main --allow-unrelated-histories --no-edit
+find . -type d -empty -delete
