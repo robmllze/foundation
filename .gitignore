@@ -1,7 +1,17 @@
-**/.dart_tool
+# macOS
 **/.DS_Store
+
+# Dart & Flutter
+**/.dart_tool
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 **/.metadata
 **/build
 **/pubspec.lock
+
+# Ignore subrepos.
+___generators/.git
+_data/.git
+_service_interfaces/.git
+_services/.git
+_view/.git
