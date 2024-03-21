@@ -6,7 +6,7 @@
 		},
 		{
 			"name": "🇩 DOCS",
-			"path": "@docs"
+			"path": "docs"
 		},
 		{
 			"name": "🇲 DATA",
