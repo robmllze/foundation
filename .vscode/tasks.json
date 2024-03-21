@@ -2,6 +2,54 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "🔄 Sync foundation",
+            "type": "shell",
+            "command": "git init && git add . && git commit -m 'upstream' && git remote remove upstream &&  && git remote add upstream https://github.com/robmllze/foundation.git && git fetch upstream && git merge upstream/main --allow-unrelated-histories --no-edit",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🔄 Sync /___generators",
+            "type": "shell",
+            "command": "git init && git add . && git commit -m 'upstream' && git remote remove upstream &&  && git remote add upstream https://github.com/robmllze/___generators.git && git fetch upstream && git merge upstream/main --allow-unrelated-histories --no-edit",
+            "options": {
+                "cwd": "${workspaceFolder}/___generators"
+            }
+        },
+        {
+            "label": "🔄 Sync /_data",
+            "type": "shell",
+            "command": "git init && git add . && git commit -m 'upstream' && git remote remove upstream &&  && git remote add upstream https://github.com/robmllze/_data-foundation.git && git fetch upstream && git merge upstream/main --allow-unrelated-histories --no-edit",
+            "options": {
+                "cwd": "${workspaceFolder}/_data"
+            }
+        },
+        {
+            "label": "🔄 Sync /_service_interfaces",
+            "type": "shell",
+            "command": "git init && git add . && git commit -m 'upstream' && git remote remove upstream &&  && git remote add upstream https://github.com/robmllze/_service_interfaces-foundation.git && git fetch upstream && git merge upstream/main --allow-unrelated-histories --no-edit",
+            "options": {
+                "cwd": "${workspaceFolder}/_service_interfaces"
+            }
+        },
+        {
+            "label": "🔄 Sync /_services",
+            "type": "shell",
+            "command": "git init && git add . && git commit -m 'upstream' && git remote remove upstream &&  && git remote add upstream https://github.com/robmllze/_services-foundation.git && git fetch upstream && git merge upstream/main --allow-unrelated-histories --no-edit",
+            "options": {
+                "cwd": "${workspaceFolder}/_services"
+            }
+        },
+        {
+            "label": "🔄 Sync /_view",
+            "type": "shell",
+            "command": "git init && git add . && git commit -m 'upstream' && git remote remove upstream &&  && git remote add upstream https://github.com/robmllze/_view-foundation.git && git fetch upstream && git merge upstream/main --allow-unrelated-histories --no-edit",
+            "options": {
+                "cwd": "${workspaceFolder}/_view"
+            }
+        },
+        {
             "label": "⚙️ Generate Directives",
             "type": "shell",
             "command": "cd ___generators && dart generate_directives.dart"

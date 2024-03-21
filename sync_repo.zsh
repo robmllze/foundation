@@ -13,7 +13,7 @@
 # Sync this folder with https://github.com/robmllze/foundation.
 git init
 git add .
-git commit -m "upstream"
+git commit -m 'upstream'
 git remote remove upstream
 git remote add upstream https://github.com/robmllze/foundation.git
 git fetch upstream
