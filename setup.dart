@@ -15,9 +15,9 @@ import 'dart:io';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void main(List<String> args) async {
-  final repo = getArg(args, '-repo') ?? 'https://github.com/robmllze/foundation.git';
-  final name = getArg(args, '-name') ?? 'foundation';
-  await $('git clone --recurse-submodules -b main $repo $name');
+  final fork = getArg(args, '-fork') ?? 'https://github.com/robmllze/foundation.git';
+  final name = getArg(args, '-project') ?? 'foundation';
+  await $('git clone --recurse-submodules -b main $fork $name');
   final submodules = [
     '___generators',
     '_data',
