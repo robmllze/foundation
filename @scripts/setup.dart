@@ -40,6 +40,7 @@ Future<void> $(
   await Process.run(
     parts[0],
     parts.sublist(1),
-    workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
+    workingDirectory:
+        workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
   );
 }
