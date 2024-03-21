@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -10,17 +10,17 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "dart:io";
+import 'dart:io';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void main() {
   for (final dirPath in [
-    //".",
-    "_data",
-    // "_service_interfaces",
-    // "_services",
-    // "_view",
+    //'.',
+    '_data',
+    // '_service_interfaces',
+    // '_services',
+    // '_view',
   ]) {
     toggleGit(dirPath);
   }
@@ -29,13 +29,13 @@ void main() {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void toggleGit(String dirPath) {
-  const gitFolderName = ".git";
-  const gitDisabledFolderName = "disabled-git";
-  final gitPath = Directory("${dirPath}/$gitFolderName");
-  final gitDisabledPath = Directory("${dirPath}/$gitDisabledFolderName");
+  const gitFolderName = '.git';
+  const gitDisabledFolderName = '.git.disabled';
+  final gitPath = Directory('${dirPath}/$gitFolderName');
+  final gitDisabledPath = Directory('${dirPath}/$gitDisabledFolderName');
   if (gitPath.existsSync()) {
-    gitPath.renameSync("${dirPath}/$gitDisabledFolderName");
+    gitPath.renameSync('${dirPath}/$gitDisabledFolderName');
   } else if (gitDisabledPath.existsSync()) {
-    gitDisabledPath.renameSync("${dirPath}/$gitFolderName");
+    gitDisabledPath.renameSync('${dirPath}/$gitFolderName');
   }
 }

@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -10,24 +10,24 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "dart:io";
+import 'dart:io';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void main(List<String> args) async {
-  final repo = "https://github.com/robmllze/foundation.git";
-  final name = args.elementAtOrNull(0) ?? "foundation";
-  await $("git clone --recurse-submodules -b main $repo $name");
+  final repo = 'https://github.com/robmllze/foundation.git';
+  final name = args.elementAtOrNull(0) ?? 'foundation';
+  await $('git clone --recurse-submodules -b main $repo $name');
   final submodules = [
-    "___generators",
-    "_data",
-    "_service_interfaces",
-    "_services",
-    "_view",
+    '___generators',
+    '_data',
+    '_service_interfaces',
+    '_services',
+    '_view',
   ];
-  await Future.wait(submodules.map((e) => $("git checkout main", [name, e])));
-  await Future.wait(submodules.map((e) => $("dart pub get", [name, e])));
-  await $("code my.code-workspace", [name]);
+  await Future.wait(submodules.map((e) => $('git checkout main', [name, e])));
+  await Future.wait(submodules.map((e) => $('dart pub get', [name, e])));
+  await $('code my.code-workspace', [name]);
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -36,10 +36,10 @@ Future<void> $(
   String command, [
   List<String> workingDirectory = const [],
 ]) async {
-  final parts = command.split(" ");
+  final parts = command.split(' ');
   await Process.run(
     parts[0],
     parts.sublist(1),
-    workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join("/") : null,
+    workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
   );
 }
