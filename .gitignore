@@ -18,3 +18,4 @@ _view/.git
 
 # Firebase
 **/.firebase
+**/firebase-debug.log
