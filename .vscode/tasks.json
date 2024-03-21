@@ -4,47 +4,47 @@
         {
             "label": "⚙️ Generate Directives",
             "type": "shell",
-            "command": "cd ___generators; dart generate_directives.dart"
+            "command": "cd ___generators/src; dart generate_directives.dart"
         },
         {
             "label": "⚙️ Generate Exports",
             "type": "shell",
-            "command": "cd ___generators; dart generate_exports.dart"
+            "command": "cd ___generators/src; dart generate_exports.dart"
         },
         {
             "label": "⚙️ Generate License Headers",
             "type": "shell",
-            "command": "cd ___generators; dart generate_license_headers.dart"
+            "command": "cd ___generators/src; dart generate_license_headers.dart"
         },
         {
             "label": "⚙️ Generate Makeups",
             "type": "shell",
-            "command": "cd ___generators; dart generate_makeups.dart"
+            "command": "cd ___generators/src; dart generate_makeups.dart"
         },
         {
             "label": "⚙️ Generate Models",
             "type": "shell",
-            "command": "cd ___generators; dart generate_models.dart"
+            "command": "cd ___generators/src; dart generate_models.dart"
         },
         {
             "label": "⚙️ Generate Preps",
             "type": "shell",
-            "command": "cd ___generators; dart generate_preps.dart"
+            "command": "cd ___generators/src; dart generate_preps.dart"
         },
         {
             "label": "⚙️ Generate Screen",
             "type": "shell",
-            "command": "cd ___generators; dart generate_screen.dart"
+            "command": "cd ___generators/src; dart generate_screen.dart"
         },
         {
             "label": "⚙️ Generate Screen Access",
             "type": "shell",
-            "command": "cd ___generators; dart generate_screen_access.dart"
+            "command": "cd ___generators/src; dart generate_screen_access.dart"
         },
         {
             "label": "⚙️ Generate Screen Bindings",
             "type": "shell",
-            "command": "cd ___generators; dart generate_screen_bindings.dart"
+            "command": "cd ___generators/src; dart generate_screen_bindings.dart"
         },
         {
             "label": "🔄 Sync foundation",
