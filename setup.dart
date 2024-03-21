@@ -39,8 +39,11 @@ void main(List<String> args) async {
   }));
   await Future.wait(submodulesAndBranches.keys.map((e) => $('dart pub get', [name, e])));
   if (nogit) {
-    rm("$name/.gitmodules");
-    rm("$name/.git");
+    await Future.wait([
+      ...submodulesAndBranches.keys.map((e) => "$e/.git"),
+      "$name/.gitmodules",
+      "$name/.git",
+    ].map((e) => rm(e)));
   }
   await $('code my.code-workspace', [name]);
 }
