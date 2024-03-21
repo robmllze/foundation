@@ -15,8 +15,8 @@ import 'dart:io';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void main(List<String> args) async {
-  final repo = 'https://github.com/robmllze/foundation.git';
-  final name = args.elementAtOrNull(0) ?? 'foundation';
+  final repo = getArg(args, '-repo') ?? 'https://github.com/robmllze/foundation.git';
+  final name = getArg(args, '-name') ?? 'foundation';
   await $('git clone --recurse-submodules -b main $repo $name');
   final submodules = [
     '___generators',
@@ -28,6 +28,26 @@ void main(List<String> args) async {
   await Future.wait(submodules.map((e) => $('git checkout main', [name, e])));
   await Future.wait(submodules.map((e) => $('dart pub get', [name, e])));
   await $('code my.code-workspace', [name]);
+  final nogit = getArg(args, '--nogit') == '';
+  if (nogit) {
+    rm(".gitmodules");
+    rm(".git");
+  }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+String? getArg(List<String> args, String argName) {
+  for (var i = 0; i < args.length; i++) {
+    if (args[i] == argName) {
+      if (i + 1 < args.length && !args[i + 1].startsWith('-')) {
+        return args[i + 1];
+      } else {
+        return '';
+      }
+    }
+  }
+  return null;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -46,5 +66,16 @@ Future<bool> $(
     return true;
   } catch (_) {
     return false;
+  }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+Future<void> rm(String path) async {
+  var entity = FileSystemEntity.typeSync(path);
+  if (entity == FileSystemEntityType.file) {
+    await File(path).delete();
+  } else if (entity == FileSystemEntityType.directory) {
+    await Directory(path).delete(recursive: true);
   }
 }
