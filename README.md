@@ -15,9 +15,9 @@ rm setup.dart
 ```
 5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart" -OutFile "setup.dart"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/robmllze/foundation/main/@scripts/setup.dart' -OutFile 'setup.dart'
 dart setup.dart your_project_name
-Remove-Item -Path "setup.dart"
+Remove-Item -Path 'setup.dart'
 ```
 
 ## License
