@@ -38,7 +38,6 @@ void main(List<String> args) async {
     return $('git checkout $branch', [name, submodule]);
   }));
   await Future.wait(submodulesAndBranches.keys.map((e) => $('dart pub get', [name, e])));
-
   if (nogit) {
     rm("$name/.gitmodules");
     rm("$name/.git");
