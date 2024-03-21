@@ -15,3 +15,6 @@ _data/.git
 _service_interfaces/.git
 _services/.git
 _view/.git
+
+# Firebase
+**/.firebase
