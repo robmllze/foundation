@@ -27,12 +27,12 @@ void main(List<String> args) async {
   ];
   await Future.wait(submodules.map((e) => $('git checkout main', [name, e])));
   await Future.wait(submodules.map((e) => $('dart pub get', [name, e])));
-  await $('code my.code-workspace', [name]);
   final nogit = getArg(args, '--nogit') == '';
   if (nogit) {
-    rm(".gitmodules");
-    rm(".git");
+    rm("$name/.gitmodules");
+    rm("$name/.git");
   }
+  await $('code my.code-workspace', [name]);
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
