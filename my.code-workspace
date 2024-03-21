@@ -5,43 +5,43 @@
 			"path": "___generators"
 		},
 		{
-			"name": "📓 DOCS",
+			"name": "🇩 DOCS",
 			"path": "@docs"
 		},
 		{
-			"name": "🟪 DATA",
+			"name": "🇲 DATA",
 			"path": "_data/lib"
 		},
 		{
-			"name": "🟪 SERVICE INTERFACES",
+			"name": "🇲 SERVICE INTERFACES",
 			"path": "_service_interfaces/lib"
 		},
 		{
-			"name": "🟪 SERVICES",
+			"name": "🇲 SERVICES",
 			"path": "_services/lib"
 		},
 		{
-			"name": "🟪 VIEW",
+			"name": "🇲 VIEW",
 			"path": "_view/lib"
 		},
 		{
-			"name": "🟦 PUBLIC APP",
+			"name": "🇦 PUBLIC APP",
 			"path": "apps/public_app/lib"
 		},
 		{
-			"name": "🟦 ADMIN APP",
+			"name": "🇦 ADMIN APP",
 			"path": "apps/admin_app/lib"
 		},
 		{
-			"name": "🟦 OPERATIONS APP",
+			"name": "🇦 OPERATIONS APP",
 			"path": "apps/operations_app/lib"
 		},
 		{
-			"name": "🟧 APPS",
-			"path": "apps"
+			"name": "🇦 TESTS APP",
+			"path": "apps/tests_app/lib"
 		},
 		{
-			"name": "🟨 FOUNDATION",
+			"name": "🇫 FOUNDATION",
 			"path": "."
 		}
 	],
