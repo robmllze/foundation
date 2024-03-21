@@ -15,12 +15,14 @@ import 'dart:io';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 void main(List<String> args) async {
-  final fork = getArg(args, '-fork') ?? 'https://github.com/robmllze/foundation.git';
+  final fork =
+      getArg(args, '-fork') ?? 'https://github.com/robmllze/foundation.git';
   final name = getArg(args, '-name') ?? 'foundation';
   final mainBranch = getArg(args, '-main-branch') ?? 'main';
   final generatorsBranch = getArg(args, '-generators-branch') ?? 'main';
   final dataBranch = getArg(args, '-data-branch') ?? 'main';
-  final serviceInterfacesBranch = getArg(args, '-service-interfaces-branch') ?? 'main';
+  final serviceInterfacesBranch =
+      getArg(args, '-service-interfaces-branch') ?? 'main';
   final servicesBranch = getArg(args, '-services-branch') ?? 'main';
   final viewBranch = getArg(args, '-view-branch') ?? 'main';
   final nogit = getArg(args, '--nogit') == '';
@@ -37,7 +39,8 @@ void main(List<String> args) async {
     final branch = e.value;
     return $('git checkout $branch', [name, submodule]);
   }));
-  await Future.wait(submodulesAndBranches.values.map((e) => $('dart pub get', [name, e])));
+  await Future.wait(
+      submodulesAndBranches.values.map((e) => $('dart pub get', [name, e])));
 
   if (nogit) {
     rm("$name/.gitmodules");
@@ -72,7 +75,8 @@ Future<bool> $(
     await Process.run(
       parts[0],
       parts.sublist(1),
-      workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
+      workingDirectory:
+          workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
     );
     return true;
   } catch (_) {
