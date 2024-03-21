@@ -32,15 +32,19 @@ void main(List<String> args) async {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Future<void> $(
+Future<bool> $(
   String command, [
   List<String> workingDirectory = const [],
 ]) async {
-  final parts = command.split(' ');
-  await Process.run(
-    parts[0],
-    parts.sublist(1),
-    workingDirectory:
-        workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
-  );
+  try {
+    final parts = command.split(' ');
+    await Process.run(
+      parts[0],
+      parts.sublist(1),
+      workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
+    );
+    return true;
+  } catch (_) {
+    return false;
+  }
 }

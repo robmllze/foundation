@@ -21,9 +21,9 @@ Future<void> main(List<String> args) async {
     clean(['_service_interfaces']),
     clean(['_services']),
     clean(['_view']),
-    // clean(['apps', 'admin_app']),
-    // clean(['apps', 'operations_app']),
-    // clean(['apps', 'public_app']),
+    clean(['apps', 'admin_app']),
+    clean(['apps', 'operations_app']),
+    clean(['apps', 'public_app']),
   ]);
 }
 
@@ -34,15 +34,21 @@ Future<void> clean(List<String> workingDirectory) async {
   await $('flutter pub get', workingDirectory);
 }
 
-Future<void> $(
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+Future<bool> $(
   String command, [
   List<String> workingDirectory = const [],
 ]) async {
-  final parts = command.split(' ');
-  await Process.run(
-    parts[0],
-    parts.sublist(1),
-    workingDirectory:
-        workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
-  );
+  try {
+    final parts = command.split(' ');
+    await Process.run(
+      parts[0],
+      parts.sublist(1),
+      workingDirectory: workingDirectory.isNotEmpty ? workingDirectory.join('/') : null,
+    );
+    return true;
+  } catch (_) {
+    return false;
+  }
 }
