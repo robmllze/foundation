@@ -40,7 +40,7 @@ del setup # Windows
 code your_projects_folder/my.code-workspace
 ```
 
-8. Look at the example apps under `/apps/`. You can delete them or remove '~example' from the example app names, e.g. `admin_app~example` to `admin_app` so that they appear in the worspace.
+8. Look at the example apps under `/apps~example/`. You can delete this folder or rename it to `/apps/` so that the example apps are included in the workspace.
 
 9. Create your own apps under `/apps/` and add them to the workspace by editing `my.code-workspace`.
 
