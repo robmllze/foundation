@@ -25,22 +25,6 @@
 			"path": "_view/lib"
 		},
 		{
-			"name": "🇦 PUBLIC APP",
-			"path": "apps/public_app/lib"
-		},
-		{
-			"name": "🇦 ADMIN APP",
-			"path": "apps/admin_app/lib"
-		},
-		{
-			"name": "🇦 OPERATIONS APP",
-			"path": "apps/operations_app/lib"
-		},
-		{
-			"name": "🇦 TESTS APP",
-			"path": "apps/tests_app/lib"
-		},
-		{
 			"name": "🇦 APPS",
 			"path": "apps/"
 		},
