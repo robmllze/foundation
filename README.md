@@ -5,24 +5,61 @@ This repository serves as a foundational workspace for effective Flutter applica
 ## Setup
 
 1. Install Dart/Flutter on your system.
-2. Proceed to download and set up Visual Studio Code, ensuring the `code` command is integrated into your system's `PATH`.
-3. Navigate to the directory where you keep your projects, for instance, using `cd ~/projects`. Avoid using directories on macOS that synchronize with cloud services, as this can lead to problems with Flutter.
-4. On macOS or Linux, open the terminal, navigate to your projects folder then copy the following chunk into it and hit return:
-```bash
+
+2. Download and install the following extensions for Visual Studio Code:
+
+- [xyz-styled-region](https://marketplace.visualstudio.com/items?itemName=robmllze.xyz-styled-region)
+- [xyz-run-tasks](https://marketplace.visualstudio.com/items?itemName=robmllze.xyz-run-tasks)
+- [xyz-run-script](https://marketplace.visualstudio.com/items?itemName=robmllze.xyz-run-script)
+
+3. Proceed to download and set up Visual Studio Code, ensuring the `code` command is integrated into your system's `PATH`.
+
+4. Navigate to the folder where you keep your projects.
+
+```zsh
+cd your_projects_folder
+```
+
+5. Run the following command to start a new project called `your_project_name` with the foundation. Change 'with_firebase' to 'with_local' if you don't want to use any cloud services, or 'with_aws' once AWS support is available:
+
+```zsh
 curl -o setup https://raw.githubusercontent.com/robmllze/foundation/main/setup.dart
-dart setup -name your_project_name --nogit -services-branch with_local
-rm setup
+dart setup -name your_project_name --nogit -services-branch with_firebase
 ```
-5. On Windows, open PowerShell, navigate to your projects folder then copy the following chunk into it and hit enter:
-```powershell
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/robmllze/foundation/main/setup.dart' -OutFile 'setup'
-dart setup -name your_project_name --nogit
-Remove-Item -Path 'setup'
+
+6. Delete the setup file that was downloaded:
+
+```zsh
+rm setup # macOS/Linux
+del setup # Windows
 ```
+
+7. Open the workspace with Visual Studio Code manually or via the terminal:
+
+```zsh
+code your_projects_folder/my.code-workspace
+```
+
+8. Look at the example apps under `/apps/`. You can delete them or remove '~example' from the example app names, e.g. `admin_app~example` to `admin_app` so that they appear in the worspace.
+
+9. Create your own apps under `/apps/` and add them to the workspace by editing `my.code-workspace`.
+
+10. The root of your project contains a file `sync_repo.zsh`, as well as the development layers `___generators`, `_data`, `_service_interfaces`, `_services`, and `_view`. Right-click on the file `sync_repo.zsh` and select `[xyz-run-script] Run`. This will pull the latest changes from their respective public repositories. You'll need to manually resolve all conflicts in Visual Studio Code to apply the changes. Be sure to remove the `.git` folders in each layer once done, to avoid accidentally pushing private changes to the public repositories.
+
+## Packages
+
+This project uses several packages by the same author. Its important you understand how they work and how to use them effectively. You can find the packages and their documentation here:
+
+- [XYZ Gen](https://pub.dev/packages/xyz_config)
+- [XYZ Flutter Plys](https://pub.dev/packages/xyz_flutter_plus)
+- [XYZ Gen](https://pub.dev/packages/xyz_gen)
+- [XYZ Gen Annotations](https://pub.dev/packages/xyz_gen_annotations)
+- [XYZ Pod](https://pub.dev/packages/xyz_pod)
+- [XYZ Utils](https://pub.dev/packages/xyz_utils)
 
 ## License
 
-This project is released under the MIT License. See [LICENSE](https://raw.githubusercontent.com/robmllze/foundation/main/LICENSE) for more information.
+This project is released under the MIT License. See [LICENSE](https://raw.githubusercontent.com/robmllze/foundation/main/LICENSE) for more information. You're free to use, modify, and distribute the software, provided you include the original copyright notice. No warranty is given, and the author(s) are not liable for damages.
 
 ## Contact
 
