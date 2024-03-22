@@ -41,6 +41,10 @@
 			"path": "apps/tests_app/lib"
 		},
 		{
+			"name": "🇦 APPS",
+			"path": "apps/"
+		},
+		{
 			"name": "🇫 FOUNDATION",
 			"path": "."
 		}
