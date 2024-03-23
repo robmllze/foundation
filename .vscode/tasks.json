@@ -118,10 +118,5 @@
                 "cwd": "${workspaceFolder}/_view"
             }
         },
-        {
-            "label": "🔗 Open dartpad.dev",
-            "type": "shell",
-            "command": "open https://dartpad.dev"
-        },
     ]
 }
