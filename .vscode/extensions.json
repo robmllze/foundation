@@ -1,0 +1,31 @@
+{
+    // Recommended extensions for this workspace.
+    "recommendations": [
+        // These Dart/Flutter extensions are vital to developing Dart/Flutter projects.
+        "Dart-Code.dart-code",
+        "Dart-Code.flutter",
+        // These GitHub extensions help with GitHub integration.
+        "GitHub.copilot-chat",
+        "GitHub.copilot",
+        "GitHub.remotehub",
+        "GitHub.vscode-github-actions",
+        // These XYZ extensions helps with the development of XYZ projects.
+        "robmllze.xyz-hideme",
+        "robmllze.xyz-bulk-rename",
+        "robmllze.xyz-run-script",
+        "robmllze.xyz-run-tasks",
+        "robmllze.xyz-styled-region",
+        // The Microsoft Live Share extension allows you to collaborate with others in real-time.
+        "ms-vsliveshare.vsliveshare",
+        // The Live Server extension allows you to view your website in real-time, for example "dartpad.dev".
+        "ms-vscode.live-server",
+        // The Draw.io extension allows you to view and create Draw.io diagrams.
+        "hediet.vscode-drawio",
+        // The Mermaid Chart extension allows you to view and create Mermaid Chart diagrams.
+        "MermaidChart.vscode-mermaid-chart",
+        // The PDF Viewer extension allows you to view PDF files.
+        "tomoki1207.pdf",
+        // The Prettier extension formats your code and makes it look pretty.
+        "esbenp.prettier-vscode",
+    ],
+}

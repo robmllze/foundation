@@ -1,3 +1,4 @@
 {
     "files.exclude": {},
+    "livePreview.defaultPreviewPath": "/.vscode/web/dartpad.dev.html",
 }
