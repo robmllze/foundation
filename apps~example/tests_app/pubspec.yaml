@@ -3,10 +3,8 @@
 ##
 ## 🇽🇾🇿 & Dev
 ##
-## Copyright Ⓒ Robert Mollentze, xyzand.dev
-## 
-## Licensing details can be found in the LICENSE file in the root directory.
-## 
+## Licencing details are in the LICENSE file in the root directory.
+##
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
 
@@ -18,13 +16,11 @@ version: 0.1.0+1
 ## -----------------------------------------------------------------------------
 
 environment:
-
-  sdk: '>=3.3.1 <4.0.0'
+  sdk: ">=3.3.1 <4.0.0"
 
 ## -----------------------------------------------------------------------------
 
 dependencies:
-
   flutter:
     sdk: flutter
 
@@ -36,11 +32,10 @@ dependencies:
     path: ../../_services
   _view:
     path: ../../_view
-  
+
 ## -----------------------------------------------------------------------------
 
 dev_dependencies:
-
   flutter_test:
     sdk: flutter
 
@@ -49,7 +44,6 @@ dev_dependencies:
 ## -----------------------------------------------------------------------------
 
 flutter:
-
   uses-material-design: true
 
   # assets:
