@@ -1,28 +1,33 @@
 // Hit Cmd+Shift+P to open the command palette, select "Preferences: Open Keyboard Shortcuts (JSON)" and paste the following code into your keybindings.json file.
 [
+    // To sort lines in an ascending order, select the lines and hit Shift+Cmd+A.
     {
-        // To sort lines in an ascending order, select the lines and hit Shift+Cmd+A.
         "key": "shift+cmd+a",
         "command": "editor.action.sortLinesAscending"
     },
+    // To sort lines in a descending order, select the lines and hit Shift+Cmd+D.
     {
-        // To sort lines in a descending order, select the lines and hit Shift+Cmd+D.
         "key": "shift+cmd+d",
         "command": "editor.action.sortLinesDescending"
     },
+    // To pop up the custom tasks menu, hit F13.
     {
-        // To pop up the custom tasks menu, hit F13.
         "key": "f13",
         "command": "workbench.action.tasks.runTask"
     },
+    // To reload the window, hit Cmd+R.
     {
-        // To reload the window, hit Cmd+R.
         "key": "cmd+r",
         "command": "workbench.action.reloadWindow"
     },
+    // If using mutiple screens, hit Cmd+F15 to duplicate the current window.
     {
-        // If using mutiple screens, hit Cmd+F15 to duplicate the current window.
         "key": "cmd+f15",
         "command": "workbench.action.duplicateWorkspaceInNewWindow"
+    },
+    // To start the live preview, hit F19.
+    {
+        "key": "f19",
+        "command": "livePreview.start"
     }
 ]

@@ -1,4 +1,23 @@
 {
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "name": "Launch Admin App",
+            "type": "dart",
+            "request": "launch",
+            "program": "apps/admin_app/lib/main.dart"
+        },
+        {
+            "name": "Launch Operations App",
+            "type": "dart",
+            "request": "launch",
+            "program": "apps/operations_app/lib/main.dart"
+        },
+        {
+            "name": "Launch Public App",
+            "type": "dart",
+            "request": "launch",
+            "program": "apps/public_app/lib/main.dart"
+        },
+    ]
 }

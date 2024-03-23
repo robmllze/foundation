@@ -1,4 +1,5 @@
 {
     "files.exclude": {},
-    "livePreview.defaultPreviewPath": "/.vscode/web/dartpad.dev.html",
+    // This is the default preview path for the Live Preview extension. Hit F19 to open the preview.
+    "livePreview.defaultPreviewPath": "/.vscode/live_preview_pages/dartpad.html",
 }
