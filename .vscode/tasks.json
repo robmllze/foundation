@@ -47,6 +47,11 @@
             "command": "cd ___generators/src; dart generate_screen_bindings.dart"
         },
         {
+            "label": "⚙️ Generate Type Utils",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_type_utils.dart"
+        },
+        {
             "label": "🔄 Sync foundation",
             "type": "shell",
             "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/foundation.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit; find . -type d -empty -delete; rm -f .gitmodules",

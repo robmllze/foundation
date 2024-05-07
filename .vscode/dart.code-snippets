@@ -1,0 +1,21 @@
+{
+    "xyz.RespondingPodListBuilder": {
+        "prefix": "xyz.RespondingPodListBuilder",
+        "body": [
+            "RespondingPodListBuilder(",
+            "  podListResponder: $1,",
+            "  builder: (context, child, data) {",
+            "    final snapshot = $2;",
+            "    if (snapshot == null) {",
+            "      return const SizedBox();",
+            "    }",
+            "    return WColumn(",
+            "      children: [",
+            "        $3",
+            "      ],",
+            "    );",
+            "  },",
+            "),",
+        ],
+    }
+}
