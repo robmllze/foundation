@@ -2,6 +2,21 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "▶️ Run admin_app @ 8000",
+            "type": "shell",
+            "command": "cd apps/admin_app && flutter run -d chrome --web-port 8000"
+        },
+        {
+            "label": "▶️ Run public_app @ 8080",
+            "type": "shell",
+            "command": "cd apps/public_app && flutter run -d chrome --web-port 8080"
+        },
+        {
+            "label": "▶️ Run operations_app @ 8100",
+            "type": "shell",
+            "command": "cd apps/operations_app && flutter run -d chrome --web-port 8100"
+        },
+        {
             "label": "⚙️ Generate Directives",
             "type": "shell",
             "command": "cd ___generators/src; dart generate_directives.dart"
