@@ -7,7 +7,7 @@
             "  builder: (context, child, data) {",
             "    final snapshot = $2;",
             "    if (snapshot == null) {",
-            "      return const SizedBox();",
+            "      return const SizedBox.shrink();",
             "    }",
             "    return WColumn(",
             "      children: [",

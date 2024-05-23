@@ -1,20 +1,45 @@
 {
     "version": "2.0.0",
     "tasks": [
+         {
+            "label": "🛠️ Fix Dependencies",
+            "type": "shell",
+            "command": [
+                "rm -rf ~/.pub-cache",
+                "; flutter pub cache repair",
+                "; (pushd ___generators && (flutter clean && flutter pub get && popd))",
+                "; (pushd _data && (flutter clean && flutter pub get && popd))",
+                "; (pushd _service_interfaces && (flutter clean && flutter pub get && popd))",
+                "; (pushd _services && (flutter clean && flutter pub get && popd))",
+                "; (pushd _view && (flutter clean && flutter pub get && popd))",
+                "; (pushd apps/admin_app && (flutter clean && flutter pub get && popd))",
+                "; (pushd apps/operations_app && (flutter clean && flutter pub get && popd))",
+                "; (pushd apps/public_app && (flutter clean && flutter pub get && popd))",
+            ]
+        },
         {
             "label": "▶️ Run admin_app @ 8000",
             "type": "shell",
-            "command": "cd apps/admin_app && flutter run -d chrome --web-port 8000"
+            "command": [
+                "cd apps/admin_app",
+                "&& flutter run -d chrome --web-port 8000"
+            ]
         },
         {
             "label": "▶️ Run public_app @ 8080",
             "type": "shell",
-            "command": "cd apps/public_app && flutter run -d chrome --web-port 8080"
+            "command": [
+                "cd apps/public_app",
+                "&& flutter run -d chrome --web-port 8080"
+            ]
         },
         {
             "label": "▶️ Run operations_app @ 8100",
             "type": "shell",
-            "command": "cd apps/operations_app && flutter run -d chrome --web-port 8100"
+            "command": [
+                "cd apps/operations_app",
+                "&& flutter run -d chrome --web-port 8100"
+            ]
         },
         {
             "label": "⚙️ Generate Directives",
@@ -69,7 +94,17 @@
         {
             "label": "🔄 Sync foundation",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/foundation.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit; find . -type d -empty -delete; rm -f .gitmodules",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/main --allow-unrelated-histories --no-edit",
+                "; find . -type d -empty -delete",
+                "; rm -f .gitmodules"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}"
             }
@@ -77,7 +112,15 @@
         {
             "label": "🔄 Sync /___generators",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/___generators.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/___generators.git",
+                "; git fetch upstream",
+                "; git merge upstream/main --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/___generators"
             }
@@ -85,7 +128,15 @@
         {
             "label": "🔄 Sync /_data",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_data-foundation.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/_data-foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/main --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/_data"
             }
@@ -93,23 +144,31 @@
         {
             "label": "🔄 Sync /_service_interfaces",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_service_interfaces-foundation.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/_service_interfaces-foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/main --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/_service_interfaces"
             }
-        },
+        }, 
         {
             "label": "🔄 Sync /_services (main)",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_services-foundation.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit",
-            "options": {
-                "cwd": "${workspaceFolder}/_services"
-            }
-        },
-        {
-            "label": "🔄 Sync /_services (with_aws)",
-            "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_services-foundation.git; git fetch upstream; git merge upstream/with_aws --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/_services-foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/main --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/_services"
             }
@@ -117,15 +176,31 @@
         {
             "label": "🔄 Sync /_services (with_firebase)",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_services-foundation.git; git fetch upstream; git merge upstream/with_firebase --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/_services-foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/with_firebase --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/_services"
             }
         },
-        {
+       {
             "label": "🔄 Sync /_services (with_local)",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_services-foundation.git; git fetch upstream; git merge upstream/with_local --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/_services-foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/with_local --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/_services"
             }
@@ -133,10 +208,19 @@
         {
             "label": "🔄 Sync /_view",
             "type": "shell",
-            "command": "git init; git add .; git commit -m Upstream; git remote remove upstream; git remote add upstream https://github.com/robmllze/_view-foundation.git; git fetch upstream; git merge upstream/main --allow-unrelated-histories --no-edit",
+            "command": [
+                "git init",
+                "; git add .",
+                "; git commit -m 'Upstream'",
+                "; git remote remove upstream",
+                "; git remote add upstream https://github.com/robmllze/_view-foundation.git",
+                "; git fetch upstream",
+                "; git merge upstream/main --allow-unrelated-histories --no-edit"
+            ],
             "options": {
                 "cwd": "${workspaceFolder}/_view"
             }
-        },
+        }
+        
     ]
 }
