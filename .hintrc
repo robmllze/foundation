@@ -4,6 +4,11 @@
   ],
   "hints": {
     "meta-viewport": "off",
-    "typescript-config/consistent-casing": "off"
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ]
   }
 }
