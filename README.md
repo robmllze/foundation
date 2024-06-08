@@ -51,7 +51,7 @@ code your_projects_folder/my.code-workspace
 This project uses several packages by the same author. Its important you understand how they work and how to use them effectively. You can find the packages and their documentation here:
 
 - [XYZ Gen](https://pub.dev/packages/xyz_config)
-- [XYZ Flutter Plys](https://pub.dev/packages/xyz_flutter_plus)
+- [XYZ Flutter Plus](https://pub.dev/packages/xyz_flutter_plus)
 - [XYZ Gen](https://pub.dev/packages/xyz_gen)
 - [XYZ Gen Annotations](https://pub.dev/packages/xyz_gen_annotations)
 - [XYZ Pod](https://pub.dev/packages/xyz_pod)
