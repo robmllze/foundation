@@ -92,6 +92,11 @@
             "command": "cd ___generators/src; dart generate_type_utils.dart"
         },
         {
+            "label": "⚙️ Generate TypeScript Models",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_typescript_models.dart"
+        },
+        {
             "label": "🔄 Sync foundation",
             "type": "shell",
             "command": [
