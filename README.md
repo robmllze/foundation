@@ -1,6 +1,6 @@
-# Foundational Workspace for Flutter
+# Foundation Template for Flutter
 
-This repository serves as a foundational workspace for effective Flutter application development. It is an amalgamation of several repositories that are designed to work together to provide a comprehensive and scalable architecture for Flutter applications.
+This repository serves as the foundation workspace for effective Flutter application development. It is an amalgamation of several repositories that are designed to work together to provide a comprehensive and scalable architecture for Flutter applications.
 
 ## Setup
 
