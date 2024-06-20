@@ -1,0 +1,13 @@
+name: test_custom_lint
+
+environment:
+  sdk: ">=3.3.1 <4.0.0"
+
+dependencies:
+  xyz_pod:
+
+dev_dependencies:
+  lints: ^3.0.0
+  custom_lint:
+  my_custom_lint:
+    path: ../my_custom_lint/
