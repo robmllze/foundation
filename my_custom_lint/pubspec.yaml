@@ -1,8 +1,0 @@
-name: my_custom_lint
-
-environment:
-  sdk: ">= 3.3.1 < 4.0.0"
-
-dependencies:
-  analyzer:
-  custom_lint_builder:
