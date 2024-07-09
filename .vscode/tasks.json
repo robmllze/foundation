@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
          {
-            "label": "🛠️ Fix Dependencies",
+            "label": "🔨 Fix Dependencies",
             "type": "shell",
             "command": [
                 "rm -rf ~/.pub-cache",
@@ -39,6 +39,60 @@
             "command": [
                 "cd apps/operations_app",
                 "&& flutter run -d chrome --web-port 8100"
+            ]
+        },
+        {
+            "label": "🛠️ Build admin_app (WASM)",
+            "type": "shell",
+            "command": [
+                "cd apps/admin_app",
+                "&& flutter build web --wasm"
+            ]
+        },
+        {
+            "label": "🛠️ Build public_app (WASM)",
+            "type": "shell",
+            "command": [
+                "cd apps/public_app",
+                "&& flutter build web --wasm"
+            ]
+        },
+        {
+            "label": "🛠️ Build operations_app (WASM)",
+            "type": "shell",
+            "command": [
+                "cd apps/operations_app",
+                "&& flutter build web --wasm"
+            ]
+        },
+        {
+            "label": "🌐 Deploy admin_app (Test)",
+            "type": "shell",
+            "command": [
+                "cd apps/admin_app",
+                "&& flutter build web --wasm",
+                "&& cd ..",
+                "&& firebase deploy --only hosting:admin_app --project test"
+            ]
+        },
+        {
+            "label": "🌐 Deploy public_app (Test)",
+            "type": "shell",
+            "command": [
+                "cd apps/public_app",
+                "&& flutter build web --wasm",
+                "&& cd ..",
+                "&& firebase deploy --only hosting:public_app --project test"
+            ]
+        },
+        {
+            "label": "🌐 Deploy operations_app (Test)",
+            "type": "shell",
+            "command": [
+                "cd apps/operations_app",
+                "&& flutter build web --wasm",
+                "&& cd ..",
+                "&& firebase deploy --only hosting:operations_app --project test"
             ]
         },
         {
