@@ -12,16 +12,16 @@
                 "; (pushd _service_interfaces && (flutter clean && flutter pub get && popd))",
                 "; (pushd _services && (flutter clean && flutter pub get && popd))",
                 "; (pushd _view && (flutter clean && flutter pub get && popd))",
-                "; (pushd apps/admin_app && (flutter clean && flutter pub get && popd))",
-                "; (pushd apps/operations_app && (flutter clean && flutter pub get && popd))",
-                "; (pushd apps/public_app && (flutter clean && flutter pub get && popd))",
+                "; (pushd projects/admin_app && (flutter clean && flutter pub get && popd))",
+                "; (pushd projects/operations_app && (flutter clean && flutter pub get && popd))",
+                "; (pushd projects/public_app && (flutter clean && flutter pub get && popd))",
             ]
         },
         {
             "label": "▶️ Run admin_app @ 8000",
             "type": "shell",
             "command": [
-                "cd apps/admin_app",
+                "cd projects/admin_app",
                 "&& flutter run -d chrome --web-port 8000"
             ]
         },
@@ -29,7 +29,7 @@
             "label": "▶️ Run public_app @ 8080",
             "type": "shell",
             "command": [
-                "cd apps/public_app",
+                "cd projects/public_app",
                 "&& flutter run -d chrome --web-port 8080"
             ]
         },
@@ -37,7 +37,7 @@
             "label": "▶️ Run operations_app @ 8100",
             "type": "shell",
             "command": [
-                "cd apps/operations_app",
+                "cd projects/operations_app",
                 "&& flutter run -d chrome --web-port 8100"
             ]
         },
@@ -45,7 +45,7 @@
             "label": "🛠️ Build admin_app (WASM)",
             "type": "shell",
             "command": [
-                "cd apps/admin_app",
+                "cd projects/admin_app",
                 "&& flutter build web --wasm"
             ]
         },
@@ -53,7 +53,7 @@
             "label": "🛠️ Build public_app (WASM)",
             "type": "shell",
             "command": [
-                "cd apps/public_app",
+                "cd projects/public_app",
                 "&& flutter build web --wasm"
             ]
         },
@@ -61,7 +61,7 @@
             "label": "🛠️ Build operations_app (WASM)",
             "type": "shell",
             "command": [
-                "cd apps/operations_app",
+                "cd projects/operations_app",
                 "&& flutter build web --wasm"
             ]
         },
