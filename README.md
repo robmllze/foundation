@@ -2,6 +2,8 @@
 
 This repository serves as the foundation workspace for effective Flutter application development. It is an amalgamation of several repositories that are designed to work together to provide a comprehensive and scalable architecture for Flutter applications.
 
+<!----------------------------------------------------------------------------->
+
 ## Setup
 
 1. Install Dart/Flutter on your system.
@@ -46,20 +48,28 @@ code your_projects_folder/my.code-workspace
 
 10. The root of your project contains a file `sync_repo.zsh`, as well as the development layers `___generators`, `_data`, `_service_interfaces`, `_services`, and `_view`. Right-click on the file `sync_repo.zsh` and select `[xyz-run-script] Run`. This will pull the latest changes from their respective public repositories. You'll need to manually resolve all conflicts in Visual Studio Code to apply the changes. Be sure to remove the `.git` folders in each layer once done, to avoid accidentally pushing private changes to the public repositories.
 
+<!----------------------------------------------------------------------------->
+
 ## Packages
 
 This project uses several packages by the same author. Its important you understand how they work and how to use them effectively. You can find the packages and their documentation here:
 
-- [XYZ Gen](https://pub.dev/packages/xyz_config)
+- [XYZ Config](https://pub.dev/packages/xyz_config)
+- [XYZ Device Info](https://pub.dev/packages/xyz_device_info)
 - [XYZ Flutter Plus](https://pub.dev/packages/xyz_flutter_plus)
-- [XYZ Gen](https://pub.dev/packages/xyz_gen)
 - [XYZ Gen Annotations](https://pub.dev/packages/xyz_gen_annotations)
+- [XYZ Gen](https://pub.dev/packages/xyz_gen)
 - [XYZ Pod](https://pub.dev/packages/xyz_pod)
+- [XYZ Security](https://pub.dev/packages/xyz_security)
 - [XYZ Utils](https://pub.dev/packages/xyz_utils)
+
+<!----------------------------------------------------------------------------->
 
 ## License
 
 This project is released under the MIT License. See [LICENSE](https://raw.githubusercontent.com/robmllze/foundation/main/LICENSE) for more information. You're free to use, modify, and distribute the software, provided you include the original copyright notice. No warranty is given, and the author(s) are not liable for damages.
+
+<!----------------------------------------------------------------------------->
 
 ## Contact
 

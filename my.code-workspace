@@ -25,12 +25,12 @@
 			"path": "_view/lib"
 		},
 		{
-			"name": "🇦 APPS",
-			"path": "apps/"
+			"name": "🇵 PROJECTS",
+			"path": "projects/"
 		},
 		{
 			"name": "🇱 FUNCTIONS",
-			"path": "apps/firebase_cloud_functions/src/"
+			"path": "projects/functions/src/"
 		},
 		{
 			"name": "🇫 FOUNDATION",

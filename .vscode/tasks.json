@@ -66,33 +66,42 @@
             ]
         },
         {
-            "label": "🌐 Deploy admin_app (Test)",
+            "label": "🌐 Deploy admin_app (Test) using MacOS",
             "type": "shell",
             "command": [
-                "cd apps/admin_app",
-                "&& flutter build web --wasm",
-                "&& cd ..",
-                "&& firebase deploy --only hosting:admin_app --project test"
+                "rm -rf projects/admin_app/build",
+                "&& rm -rf projects/firebase/hosting/admin_app/build/web",
+                "&& (cd projects/admin_app && flutter build web --wasm)",
+                "&& mkdir -p projects/firebase/hosting/admin_app/build",
+                "&& (cd projects/firebase/hosting/admin_app/build && ln -s ../../../../admin_app/build/web web)",
+                "&& . ~/.nvm/nvm.sh && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only hosting:admin_app --project test)",
             ]
         },
         {
-            "label": "🌐 Deploy public_app (Test)",
+            "label": "🌐 Deploy public_app (Test) using MacOS",
             "type": "shell",
             "command": [
-                "cd apps/public_app",
-                "&& flutter build web --wasm",
-                "&& cd ..",
-                "&& firebase deploy --only hosting:public_app --project test"
+                "rm -rf projects/public_app/build",
+                "&& rm -rf projects/firebase/hosting/public_app/build/web",
+                "&& (cd projects/public_app && flutter build web --wasm)",
+                "&& mkdir -p projects/firebase/hosting/public_app/build",
+                "&& (cd projects/firebase/hosting/public_app/build && ln -s ../../../../public_app/build/web web)",
+                "&& . ~/.nvm/nvm.sh && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only hosting:public_app --project test)",
             ]
         },
         {
-            "label": "🌐 Deploy operations_app (Test)",
+            "label": "🌐 Deploy operations_app (Test) using MacOS",
             "type": "shell",
             "command": [
-                "cd apps/operations_app",
-                "&& flutter build web --wasm",
-                "&& cd ..",
-                "&& firebase deploy --only hosting:operations_app --project test"
+                "rm -rf projects/operations_app/build",
+                "&& rm -rf projects/firebase/hosting/operations_app/build/web",
+                "&& (cd projects/operations_app && flutter build web --wasm)",
+                "&& mkdir -p projects/firebase/hosting/operations_app/build",
+                "&& (cd projects/firebase/hosting/operations_app/build && ln -s ../../../../operations_app/build/web web)",
+                "&& . ~/.nvm/nvm.sh && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only hosting:operations_app --project test)",
             ]
         },
         {
