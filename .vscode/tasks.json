@@ -90,42 +90,107 @@
             ]
         },
         {
-            "label": "🌐 Deploy admin_app (Test) using MacOS",
+            "label": "🌐 Deploy admin_app (MacOS/TEST)",
             "type": "shell",
             "command": [
-                "rm -rf projects/admin_app/build",
+                "firebase login --reauth",
+                "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/admin_app/build/web",
-                "&& (cd projects/admin_app && flutter build web --wasm)",
+                "&& (cd projects/admin_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
                 "&& mkdir -p projects/firebase/hosting/admin_app/build",
                 "&& (cd projects/firebase/hosting/admin_app/build && ln -s ../../../../admin_app/build/web web)",
-                "&& . ~/.nvm/nvm.sh && nvm use 21",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
                 "&& (cd projects/firebase && firebase deploy --only hosting:admin_app --project test)",
             ]
         },
         {
-            "label": "🌐 Deploy public_app (Test) using MacOS",
+            "label": "🌐 Deploy public_app (MacOS/TEST)",
             "type": "shell",
             "command": [
-                "rm -rf projects/public_app/build",
+                "firebase login --reauth",
+                "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/public_app/build/web",
-                "&& (cd projects/public_app && flutter build web --wasm)",
+                "&& (cd projects/public_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
                 "&& mkdir -p projects/firebase/hosting/public_app/build",
                 "&& (cd projects/firebase/hosting/public_app/build && ln -s ../../../../public_app/build/web web)",
-                "&& . ~/.nvm/nvm.sh && nvm use 21",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
                 "&& (cd projects/firebase && firebase deploy --only hosting:public_app --project test)",
             ]
         },
         {
-            "label": "🌐 Deploy operations_app (Test) using MacOS",
+            "label": "🌐 Deploy operations_app (MacOS/TEST)",
             "type": "shell",
             "command": [
-                "rm -rf projects/operations_app/build",
+                "firebase login --reauth",
+                "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/operations_app/build/web",
-                "&& (cd projects/operations_app && flutter build web --wasm)",
+                "&& (cd projects/operations_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
                 "&& mkdir -p projects/firebase/hosting/operations_app/build",
                 "&& (cd projects/firebase/hosting/operations_app/build && ln -s ../../../../operations_app/build/web web)",
-                "&& . ~/.nvm/nvm.sh && nvm use 21",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
                 "&& (cd projects/firebase && firebase deploy --only hosting:operations_app --project test)",
+            ]
+        },
+        {
+            "label": "🌐 Deploy admin_app (MacOS/PROD)",
+            "type": "shell",
+            "command": [
+                "firebase login --reauth",
+                "&& rm -rf projects/public_app/build",
+                "&& rm -rf projects/firebase/hosting/admin_app/build/web",
+                "&& (cd projects/admin_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
+                "&& mkdir -p projects/firebase/hosting/admin_app/build",
+                "&& (cd projects/firebase/hosting/admin_app/build && ln -s ../../../../admin_app/build/web web)",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only hosting:admin_app --project prod)",
+            ]
+        },
+        {
+            "label": "🌐 Deploy public_app (MacOS/PROD)",
+            "type": "shell",
+            "command": [
+                "firebase login --reauth",
+                "&& rm -rf projects/public_app/build",
+                "&& rm -rf projects/firebase/hosting/public_app/build/web",
+                "&& (cd projects/public_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
+                "&& mkdir -p projects/firebase/hosting/public_app/build",
+                "&& (cd projects/firebase/hosting/public_app/build && ln -s ../../../../public_app/build/web web)",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only hosting:public_app --project prod)",
+            ]
+        },
+        {
+            "label": "🌐 Deploy operations_app (MacOS/PROD)",
+            "type": "shell",
+            "command": [
+                "firebase login --reauth",
+                "&& rm -rf projects/public_app/build",
+                "&& rm -rf projects/firebase/hosting/operations_app/build/web",
+                "&& (cd projects/operations_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
+                "&& mkdir -p projects/firebase/hosting/operations_app/build",
+                "&& (cd projects/firebase/hosting/operations_app/build && ln -s ../../../../operations_app/build/web web)",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only hosting:operations_app --project prod)",
+            ]
+        },
+        {
+            "label": "🌐 Deploy functions (TEST)",
+            "type": "shell",
+            "command": [
+                "firebase login --reauth",
+                "&& (cd projects/firebase/functions && npm install)",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only functions --project test)",
+            ]
+        },
+        {
+            "label": "🌐 Deploy functions (PROD)",
+            "type": "shell",
+            "command": [
+                "firebase login --reauth",
+                "&& (cd projects/firebase/functions && npm install)",
+                "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
+                "&& (cd projects/firebase && firebase deploy --only functions --project prod)",
             ]
         },
         {
