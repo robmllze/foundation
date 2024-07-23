@@ -18,27 +18,51 @@
             ]
         },
         {
-            "label": "▶️ Run admin_app @ 8000",
+            "label": "▶️ Run admin_app @ 8000 (TEST)",
             "type": "shell",
             "command": [
                 "cd projects/admin_app",
-                "&& flutter run -d chrome --web-port 8000"
+                "&& flutter run -d chrome --web-port 8000 --dart-define=SERVICE_ENVIRONMENT=TEST"
             ]
         },
         {
-            "label": "▶️ Run public_app @ 8080",
+            "label": "▶️ Run public_app @ 8080 (TEST)",
             "type": "shell",
             "command": [
                 "cd projects/public_app",
-                "&& flutter run -d chrome --web-port 8080"
+                "&& flutter run -d chrome --web-port 8080 --dart-define=SERVICE_ENVIRONMENT=TEST"
             ]
         },
         {
-            "label": "▶️ Run operations_app @ 8100",
+            "label": "▶️ Run operations_app @ 8100 (TEST)",
             "type": "shell",
             "command": [
                 "cd projects/operations_app",
-                "&& flutter run -d chrome --web-port 8100"
+                "&& flutter run -d chrome --web-port 8100 --dart-define=SERVICE_ENVIRONMENT=TEST"
+            ]
+        },
+        {
+            "label": "▶️ Run admin_app @ 8000 (PROD)",
+            "type": "shell",
+            "command": [
+                "cd projects/admin_app",
+                "&& flutter run -d chrome --web-port 8000 --dart-define=SERVICE_ENVIRONMENT=PROD"
+            ]
+        },
+        {
+            "label": "▶️ Run public_app @ 8080 (PROD)",
+            "type": "shell",
+            "command": [
+                "cd projects/public_app",
+                "&& flutter run -d chrome --web-port 8080 --dart-define=SERVICE_ENVIRONMENT=PROD"
+            ]
+        },
+        {
+            "label": "▶️ Run operations_app @ 8100 (PROD)",
+            "type": "shell",
+            "command": [
+                "cd projects/operations_app",
+                "&& flutter run -d chrome --web-port 8100 --dart-define=SERVICE_ENVIRONMENT=PROD"
             ]
         },
         {

@@ -50,9 +50,22 @@ code your_projects_folder/my.code-workspace
 
 <!----------------------------------------------------------------------------->
 
-## Packages
+## Structure
 
-This project uses several packages by the same author. Its important you understand how they work and how to use them effectively. You can find the packages and their documentation here:
+### Widget Naming
+
+- **Static Components**, prefixed with `Sc`: Widgets that are not connected to dynamic data. They are placed in the `/components/static_components` folder.
+- **Dynamic Components**, prefixed with `Dc`: Widgets that are connected to dynamic data, such as streams or services. They are placed in the `/components/dynamic_components` folder.
+- **Local Components**, prefixed with `Lc`: Widgets that can be either static or dynamic and are specific to a screen. They are placed in their specific screen folder, e.g. `/screens/<SPECIFIC_SCREEN_NAME>/_local_components_/`.
+- **Material Widgets**, prefixed with `M`: Widgets that depend on the package `flutter/material.dart`. They are defined in the `_view` or `xyz_flutter_plus` package.
+- **Cupertino Widgets**, prefixed with `C`: Widgets that depend on the package `flutter/cupertino.dart`. They are defined in the `_view` or `xyz_flutter_plus` package.
+- **Core Widgets**, prefixed with `W`: Widgets that are neither Material nor Cupertino and depend on the package `flutter/widgets.dart`. They are defined in the `_view` or `xyz_flutter_plus` package.
+
+<!----------------------------------------------------------------------------->
+
+## Dependencies
+
+This project depends on several packages by the same author. Its important you understand how they work and how to use them effectively. You can find the packages and their documentation here:
 
 - [XYZ Config](https://pub.dev/packages/xyz_config)
 - [XYZ Device Info](https://pub.dev/packages/xyz_device_info)
