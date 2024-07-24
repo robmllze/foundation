@@ -1,8 +1,18 @@
 {
     "version": "2.0.0",
     "tasks": [
+        {
+            "label": "✨ Install/Update Firebase Tools",
+            "type": "shell",
+            "command": "npm install -g firebase-tools"
+        },
+        {
+            "label": "✨ Set/Upgrade Flutter",
+            "type": "shell",
+            "command": "flutter channel master && flutter upgrade"
+        },
          {
-            "label": "🔨 Fix Dependencies",
+            "label": "🪄 Fix Dependencies",
             "type": "shell",
             "command": [
                 "rm -rf ~/.pub-cache",
@@ -172,6 +182,8 @@
             "type": "shell",
             "command": [
                 "cd projects/admin_app",
+                "&& flutter clean",
+                "&& flutter pub get",
                 "&& flutter build web --wasm"
             ]
         },
@@ -180,6 +192,8 @@
             "type": "shell",
             "command": [
                 "cd projects/public_app",
+                "&& flutter clean",
+                "&& flutter pub get",
                 "&& flutter build web --wasm"
             ]
         },
@@ -188,6 +202,8 @@
             "type": "shell",
             "command": [
                 "cd projects/operations_app",
+                "&& flutter clean",
+                "&& flutter pub get",
                 "&& flutter build web --wasm"
             ]
         },
@@ -198,7 +214,7 @@
                 "firebase login --reauth",
                 "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/admin_app/build/web",
-                "&& (cd projects/admin_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
+                "&& (cd projects/admin_app && flutter clean && flutter pub get && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
                 "&& mkdir -p projects/firebase/hosting/admin_app/build",
                 "&& (cd projects/firebase/hosting/admin_app/build && ln -s ../../../../admin_app/build/web web)",
                 "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
@@ -212,7 +228,7 @@
                 "firebase login --reauth",
                 "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/public_app/build/web",
-                "&& (cd projects/public_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
+                "&& (cd projects/public_app && flutter clean && flutter pub get && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
                 "&& mkdir -p projects/firebase/hosting/public_app/build",
                 "&& (cd projects/firebase/hosting/public_app/build && ln -s ../../../../public_app/build/web web)",
                 "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
@@ -226,7 +242,7 @@
                 "firebase login --reauth",
                 "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/operations_app/build/web",
-                "&& (cd projects/operations_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
+                "&& (cd projects/operations_app && flutter clean && flutter pub get && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=TEST)",
                 "&& mkdir -p projects/firebase/hosting/operations_app/build",
                 "&& (cd projects/firebase/hosting/operations_app/build && ln -s ../../../../operations_app/build/web web)",
                 "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
@@ -240,7 +256,7 @@
                 "firebase login --reauth",
                 "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/admin_app/build/web",
-                "&& (cd projects/admin_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
+                "&& (cd projects/admin_app && flutter clean && flutter pub get && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
                 "&& mkdir -p projects/firebase/hosting/admin_app/build",
                 "&& (cd projects/firebase/hosting/admin_app/build && ln -s ../../../../admin_app/build/web web)",
                 "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
@@ -254,7 +270,7 @@
                 "firebase login --reauth",
                 "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/public_app/build/web",
-                "&& (cd projects/public_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
+                "&& (cd projects/public_app && flutter clean && flutter pub get && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
                 "&& mkdir -p projects/firebase/hosting/public_app/build",
                 "&& (cd projects/firebase/hosting/public_app/build && ln -s ../../../../public_app/build/web web)",
                 "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
@@ -268,7 +284,7 @@
                 "firebase login --reauth",
                 "&& rm -rf projects/public_app/build",
                 "&& rm -rf projects/firebase/hosting/operations_app/build/web",
-                "&& (cd projects/operations_app && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
+                "&& (cd projects/operations_app && flutter clean && flutter pub get && flutter build web --wasm --dart-define=SERVICE_ENVIRONMENT=PROD)",
                 "&& mkdir -p projects/firebase/hosting/operations_app/build",
                 "&& (cd projects/firebase/hosting/operations_app/build && ln -s ../../../../operations_app/build/web web)",
                 "&& . ~/.nvm/nvm.sh && nvm install 21 && nvm use 21",
