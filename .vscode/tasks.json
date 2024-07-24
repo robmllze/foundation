@@ -18,52 +18,154 @@
             ]
         },
         {
-            "label": "▶️ Run admin_app @ 8000 (TEST)",
+            "label": "▶ Run admin_app @ 8000 (TEST)",
             "type": "shell",
             "command": [
                 "cd projects/admin_app",
-                "&& flutter run -d chrome --web-port 8000 --dart-define=SERVICE_ENVIRONMENT=TEST"
+                "&& flutter run",
+                " -d chrome",
+                "--web-port 8000",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=TEST"
             ]
         },
         {
-            "label": "▶️ Run public_app @ 8080 (TEST)",
+            "label": "▶ Run public_app @ 8080 (TEST)",
             "type": "shell",
             "command": [
                 "cd projects/public_app",
-                "&& flutter run -d chrome --web-port 8080 --dart-define=SERVICE_ENVIRONMENT=TEST"
+                "&& flutter run",
+                " -d chrome",
+                "--web-port 8080",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=TEST"
             ]
         },
         {
-            "label": "▶️ Run operations_app @ 8100 (TEST)",
+            "label": "▶ Run operations_app @ 8100 (TEST)",
             "type": "shell",
             "command": [
                 "cd projects/operations_app",
-                "&& flutter run -d chrome --web-port 8100 --dart-define=SERVICE_ENVIRONMENT=TEST"
+                "&& flutter run",
+                " -d chrome",
+                "--web-port 8080",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=TEST"
             ]
         },
         {
-            "label": "▶️ Run admin_app @ 8000 (PROD)",
+            "label": "▶ Run admin_app @ 8000 (PROD)",
             "type": "shell",
             "command": [
                 "cd projects/admin_app",
-                "&& flutter run -d chrome --web-port 8000 --dart-define=SERVICE_ENVIRONMENT=PROD"
+                "&& flutter run",
+                " -d chrome",
+                "--web-port 8000",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=PROD"
             ]
         },
         {
-            "label": "▶️ Run public_app @ 8080 (PROD)",
+            "label": "▶ Run public_app @ 8080 (PROD)",
             "type": "shell",
             "command": [
                 "cd projects/public_app",
-                "&& flutter run -d chrome --web-port 8080 --dart-define=SERVICE_ENVIRONMENT=PROD"
+                "&& flutter run",
+                " -d chrome",
+                "--web-port 8080",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=PROD"
             ]
         },
         {
-            "label": "▶️ Run operations_app @ 8100 (PROD)",
+            "label": "▶ Run operations_app @ 8100 (PROD)",
             "type": "shell",
             "command": [
                 "cd projects/operations_app",
-                "&& flutter run -d chrome --web-port 8100 --dart-define=SERVICE_ENVIRONMENT=PROD"
+                "&& flutter run",
+                " -d chrome",
+                "--web-port 8080",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=PROD"
             ]
+        },
+                {
+            "label": "🔷 Serve admin_app @ 8000 (TEST)",
+            "type": "shell",
+            "command": [
+                "cd projects/admin_app",
+                "&& flutter run",
+                "-d web-server",
+                "--web-port 8000",
+                "--web-hostname 0.0.0.0",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=TEST"
+            ],
+        },
+        {
+            "label": "🔷 Serve public_app @ 8080 (TEST)",
+            "type": "shell",
+            "command": [
+                "cd projects/public_app",
+                "&& flutter run",
+                "-d web-server",
+                "--web-port 8080",
+                "--web-hostname 0.0.0.0",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=TEST"
+            ],
+        },
+        {
+            "label": "🔷 Serve operations_app @ 8100 (TEST)",
+            "type": "shell",
+            "command": [
+                "cd projects/operations_app",
+                "&& flutter run",
+                "-d web-server",
+                "--web-port 8080",
+                "--web-hostname 0.0.0.0",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=TEST"
+            ],
+        },
+        {
+            "label": "🔷 Serve admin_app @ 8000 (PROD)",
+            "type": "shell",
+            "command": [
+                "cd projects/admin_app",
+                "&& flutter run",
+                "-d web-server",
+                "--web-port 8000",
+                "--web-hostname 0.0.0.0",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=PROD"
+            ],
+        },
+        {
+            "label": "🔷 Serve public_app @ 8080 (PROD)",
+            "type": "shell",
+            "command": [
+                "cd projects/public_app",
+                "&& flutter run",
+                "-d web-server",
+                "--web-port 8080",
+                "--web-hostname 0.0.0.0",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=PROD"
+            ],
+        },
+        {
+            "label": "🔷 Serve operations_app @ 8100 (PROD)",
+            "type": "shell",
+            "command": [
+                "cd projects/operations_app",
+                "&& flutter run",
+                "-d web-server",
+                "--web-port 8080",
+                "--web-hostname 0.0.0.0",
+                "--debug",
+                "--dart-define=SERVICE_ENVIRONMENT=PROD"
+            ],
         },
         {
             "label": "🛠️ Build admin_app (WASM)",
