@@ -11,12 +11,18 @@
             "type": "shell",
             "command": "flutter channel master && flutter upgrade"
         },
-         {
+        {
+            "label": "✨ Remove Pub Cache (MacOS)",
+            "type": "shell",
+            "command": [
+                "rm -rf ~/.pub-cache",
+            ]
+        },
+        {
             "label": "🪄 Fix Dependencies",
             "type": "shell",
             "command": [
                 "rm -rf ~/.pub-cache",
-                "; flutter pub cache repair",
                 "; (pushd ___generators && (flutter clean && flutter pub get && popd))",
                 "; (pushd _data && (flutter clean && flutter pub get && popd))",
                 "; (pushd _service_interfaces && (flutter clean && flutter pub get && popd))",
