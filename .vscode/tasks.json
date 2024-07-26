@@ -2,17 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "✨ Install/Update Firebase Tools",
+            "label": "✨ Install or Update Firebase Tools",
             "type": "shell",
             "command": "npm install -g firebase-tools"
         },
         {
-            "label": "✨ Set/Upgrade Flutter",
+            "label": "✨ Upgrade Flutter (Master)",
             "type": "shell",
             "command": "flutter channel master && flutter upgrade"
         },
         {
-            "label": "✨ Remove Pub Cache (MacOS)",
+            "label": "✨ Remove Pub Cache (MacOS Only)",
             "type": "shell",
             "command": [
                 "rm -rf ~/.pub-cache",
@@ -214,7 +214,7 @@
             ]
         },
         {
-            "label": "🌐 Deploy admin_app (MacOS/TEST)",
+            "label": "🌐 Deploy admin_app (MacOS Only/TEST)",
             "type": "shell",
             "command": [
                 "firebase login --reauth",
@@ -228,7 +228,7 @@
             ]
         },
         {
-            "label": "🌐 Deploy public_app (MacOS/TEST)",
+            "label": "🌐 Deploy public_app (MacOS Only/TEST)",
             "type": "shell",
             "command": [
                 "firebase login --reauth",
@@ -242,7 +242,7 @@
             ]
         },
         {
-            "label": "🌐 Deploy operations_app (MacOS/TEST)",
+            "label": "🌐 Deploy operations_app (MacOS Only/TEST)",
             "type": "shell",
             "command": [
                 "firebase login --reauth",
@@ -256,7 +256,7 @@
             ]
         },
         {
-            "label": "🌐 Deploy admin_app (MacOS/PROD)",
+            "label": "🌐 Deploy admin_app (MacOS Only/PROD)",
             "type": "shell",
             "command": [
                 "firebase login --reauth",
@@ -270,7 +270,7 @@
             ]
         },
         {
-            "label": "🌐 Deploy public_app (MacOS/PROD)",
+            "label": "🌐 Deploy public_app (MacOS Only/PROD)",
             "type": "shell",
             "command": [
                 "firebase login --reauth",
@@ -284,7 +284,7 @@
             ]
         },
         {
-            "label": "🌐 Deploy operations_app (MacOS/PROD)",
+            "label": "🌐 Deploy operations_app (MacOS Only/PROD)",
             "type": "shell",
             "command": [
                 "firebase login --reauth",
